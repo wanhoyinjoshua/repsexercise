@@ -1,12 +1,7 @@
+
 {
-    "theme_color": "#f69435",
-    "background_color": "#f69435",
-    "display": "standalone",
-    "scope": "/",
-    "start_url": "/",
-    "name": "anythingpocket",
-    "short_name": "anythingpocket",
-    "description": "anythingpoclet",
+    "name": "My PWA",
+    "short_name": "my-pwa-app",
     "icons": [
         {
             "src": "/icon-192x192.png",
@@ -28,5 +23,10 @@
             "sizes": "512x512",
             "type": "image/png"
         }
-    ]
-}
+    ],
+    "theme_color": "#FFFFFF",
+    "background_color": "#FFFFFF",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait"
+  }
