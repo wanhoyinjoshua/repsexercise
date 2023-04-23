@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 
 const index = () => {
   const router = useRouter()
-  const { id } = router.query
+  const { Id } = router.query
 
     const dictionary=
     {
@@ -27,7 +27,7 @@ const index = () => {
 
     }
 
-    console.log(id)
+   
   return (
     <div >
       <div >
@@ -35,7 +35,7 @@ const index = () => {
       width='auto'
       
       
-      controls={true} url={dictionary[`${id}`]} />
+      controls={true} url={dictionary[`${Id}`]} />
 
       </div>
       
