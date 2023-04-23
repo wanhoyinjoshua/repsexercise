@@ -112,7 +112,7 @@ export default function Example() {
 
   return (
     <>
-      <button type="button" className="w-full bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" onClick={() => setShowModal(true)}>
+      <button type="button" className=" m-2  w-full bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" onClick={() => setShowModal(true)}>
         Send Email
       </button>
       <Modal showModal={showModal} setShowModal={setShowModal} />
