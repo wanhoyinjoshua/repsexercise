@@ -38,6 +38,11 @@ const Index = () => {
       controls={true} url={dictionary[`${Id}`]} />
 
       </div>
+      <div>
+  <img loading="lazy" src="https://vumbnail.com/70591644.jpg" alt="Video Description"/>
+  <iframe allow="autoplay" src="" data-src="https://player.vimeo.com/video/70591644?autoplay=1"></iframe>
+  <button aria-label="Play video"></button>
+  </div>
       
      
     </div>
