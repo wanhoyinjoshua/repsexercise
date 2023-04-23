@@ -52,8 +52,8 @@
           "purpose": "maskable any"
         }
       ],
-    "theme_color": "#FFFFFF",
-    "background_color": "#FFFFFF",
+    "theme_color": "white",
+    "background_color": "white",
     "start_url": "/?source=pwa",
     "display": "standalone",
     "orientation": "portrait"
