@@ -8,8 +8,8 @@ const Index = () => {
         <div>
         
         <Videobutton link={"/videos/hold_onto_your_head"} content={"Task Intro"}></Videobutton>
-        <Videobutton link={"/Task/Beginner"} content={"Task Beginner"}></Videobutton>
-        <Videobutton link={"/Task/Advanced"} content={"Task Advanced"}></Videobutton>
+        <Videobutton link={"/Task/beginner"} content={"Task Beginner"}></Videobutton>
+        <Videobutton link={"/Task/advanced"} content={"Task Advanced"}></Videobutton>
         <Videobutton link={"/videos/the_in_and_out"} content={"Task Info"}></Videobutton>
         <Videobutton link={"/videos/the_in_and_out"} content={"Task Beginner"}></Videobutton>
         
