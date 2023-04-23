@@ -28,7 +28,7 @@ export default function Home() {
       <div className="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50 overflow-scroll max-h-screen p-10">
         <div className="bg-white p-6 rounded shadow-md max-h-[90vh] overflow-scroll">
           <h2 className="text-lg font-medium mb-4">Disclaimer</h2>
-          <p className="mb-4">
+          <p className="mb-4 text-gray-950 z-50">
           Disclaimer
 
 The exercise programs contained in the REPS app are general exercise programs that are not comprehensive or intended to be suitable for all people after stroke.

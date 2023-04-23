@@ -5,7 +5,7 @@ const DisclaimerPopup = ({ onAgree }) => {
     <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-700 bg-opacity-75 z-50">
       <div className="bg-white p-8 rounded-md">
         <h2 className="text-lg font-bold mb-4">Disclaimer</h2>
-        <p className="mb-4 z-50">
+        <p className="mb-4 z-50 text-gray-950">
         
 
 <p>The exercise programs contained in the REPS app are general exercise programs that are not comprehensive or intended to be suitable for all people after stroke.</p>
