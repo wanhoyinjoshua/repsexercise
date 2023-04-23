@@ -1,7 +1,7 @@
 import React from 'react'
 import Videobutton from '../../components/videobutton'
 import { useRouter } from "next/router"
-const advanced = () => {
+const Advanced = () => {
     const router = useRouter()
   return (
     <div >
@@ -19,4 +19,4 @@ const advanced = () => {
   )
 }
 
-export default advanced
+export default Advanced

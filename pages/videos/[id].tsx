@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
 import { useRouter } from 'next/router'
 
-const index = () => {
+const Index = () => {
   const router = useRouter()
   const { Id } = router.query
 
@@ -45,4 +45,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Index

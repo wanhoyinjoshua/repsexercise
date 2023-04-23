@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRouter } from "next/router"
 import Videobutton from '../../components/videobutton'
-const beginner = () => {
+const Beginner = () => {
     const router = useRouter()
   return (
     <div>
@@ -16,4 +16,4 @@ const beginner = () => {
   )
 }
 
-export default beginner
+export default Beginner
