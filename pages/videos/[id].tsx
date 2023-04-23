@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 
 const Index = () => {
   const router = useRouter()
-  const { Id } = router.query
+  const { id } = router.query
 
     const dictionary=
     {
@@ -35,14 +35,12 @@ const Index = () => {
       width='auto'
       
       
-      controls={true} url={dictionary[`${Id}`]} />
+      controls={true} url={dictionary[`${id}`]} />
 
       </div>
-      <div>
-  <img loading="lazy" src="https://vumbnail.com/70591644.jpg" alt="Video Description"/>
-  <iframe allow="autoplay" src="" data-src="https://player.vimeo.com/video/70591644?autoplay=1"></iframe>
-  <button aria-label="Play video"></button>
-  </div>
+
+      <div className='embed-container'><iframe src='https://player.vimeo.com/video/66140585' frameBorder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
+     
       
      
     </div>
