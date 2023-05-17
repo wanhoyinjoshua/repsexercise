@@ -92,7 +92,7 @@ Participation in any of the exercises shown on this video is at your own risk. B
         <link rel="manifest" href="/manifest.json" />
       </Head>
       {JSON.stringify(deferredPrompt)}
-      {deferredPrompt?<div>does not fit criteria</div>: <button onClick={addToHomeScreen}>Add to Home Screen</button>}
+      {deferredPrompt? <button onClick={addToHomeScreen}>Add to Home Screen</button>:<div>does not fit criteria</div>}
      
       <Videobutton link={"/Push"} content={"Push Exercises"}></Videobutton>
       <Videobutton link={"/Task"} content={"Task Exercises"}></Videobutton>
