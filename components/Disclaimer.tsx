@@ -8,7 +8,7 @@ const DisclaimerPopup = ({ onAgree }) => {
         <p className="mb-4 z-50 text-gray-950">
         
 
-<p>The exercise programs contained in the REPS app are general exercise programs that are not comprehensive or intended to be suitable for all people after stroke.</p>
+<p className="text-gray-950">The exercise programs contained in the REPS app are general exercise programs that are not comprehensive or intended to be suitable for all people after stroke.</p>
 
 <p>Macquarie University does not make any representations or warranties as to the effectiveness of the exercises contained in this video.</p>
 

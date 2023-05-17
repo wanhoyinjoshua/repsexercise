@@ -15,10 +15,18 @@ export default function Home() {
     
     localStorage.setItem('disclaimerAccepted', 'true');
   };
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
   useEffect(() => {
     // Check if the user has already accepted the disclaimer
     const disclaimerAcceptedInStorage = window?.localStorage.getItem('disclaimerAccepted');
-    
+  
+      const handleBeforeInstallPrompt = (event) => {
+        console.log("hiih")
+        event.preventDefault();
+        setDeferredPrompt(event);
+      };
+      window?.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+
     if (disclaimerAcceptedInStorage) {
       setDisclaimerAgreed(true);  
     }
@@ -54,6 +62,27 @@ Participation in any of the exercises shown on this video is at your own risk. B
       </div>
     );
   }
+  else{
+
+    const addToHomeScreen = () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('User accepted the installation prompt.');
+          } else {
+            console.log('User dismissed the installation prompt.');
+          }
+          setDeferredPrompt(null);
+        });
+      }
+      else{
+        console.log("hi")
+      }
+    };
+  
+
+  
   return (
     <div >
       <Head>
@@ -62,8 +91,9 @@ Participation in any of the exercises shown on this video is at your own risk. B
         <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
       </Head>
-      
-
+      {JSON.stringify(deferredPrompt)}
+      {deferredPrompt?<div>does not fit criteria</div>: <button onClick={addToHomeScreen}>Add to Home Screen</button>}
+     
       <Videobutton link={"/Push"} content={"Push Exercises"}></Videobutton>
       <Videobutton link={"/Task"} content={"Task Exercises"}></Videobutton>
       <Videobutton link={"/videos/sittostand_beginner"} content={"Program Info"}></Videobutton>
@@ -73,4 +103,5 @@ Participation in any of the exercises shown on this video is at your own risk. B
    
     </div>
   )
+  }
 }
