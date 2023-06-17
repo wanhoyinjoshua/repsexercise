@@ -6,14 +6,16 @@ const Index = () => {
     const router = useRouter()
     return (
         <div>
+          
+  
         
-        <Videobutton link={"/videos/hold_onto_your_head"} content={"Task Intro"}></Videobutton>
+        <Videobutton link={"/videos/Task_Intro"} content={"Task Intro"}></Videobutton>
         <Videobutton link={"/Task/beginner"} content={"Task Beginner"}></Videobutton>
         <Videobutton link={"/Task/advanced"} content={"Task Advanced"}></Videobutton>
-        <Videobutton link={"/videos/the_in_and_out"} content={"Task Info"}></Videobutton>
-        <Videobutton link={"/videos/the_in_and_out"} content={"Task Beginner"}></Videobutton>
+        <Videobutton link={"/Task/info"} content={"Task Info"}></Videobutton>
+        <Videobutton blank={true} link={"https://www.mq.edu.au/about/about-the-university/our-faculties/medicine-and-health-sciences/departments-and-centres/department-of-health-professions/our-research/task-program/equipment"} content={"Task Equipment"}></Videobutton>
         
-
+        
         
         </div>
       )

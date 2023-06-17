@@ -56,13 +56,13 @@ const Modal = ({ showModal, setShowModal }) => {
             <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
               <div className="bg-white px-4 pt-5 pb-4  sm:p-1 sm:pb-4">
                 <div className="flex flex-col sm:flex-col " >
-                  <div className="self-start flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10" onClick={() => setShowModal(false)}>
+                  <div className="self-start flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10 cursor-pointer hover:bg-red-400" onClick={() => setShowModal(false)}>
                     <svg className="h-6 w-6 text-white-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </div>
                   <div className="w-full mt-3  text-center sm:mt-0 sm:ml-4 sm:text-left">
-                    <h3 className="text-lg leading-6 font-medium text-gray-900"><input value={subject} placeholder='Enter your name here' onChange={(e) => setSubject(e.target.value)} /></h3>
+                    <h3 className="text-lg leading-6 font-medium text-gray-900"><input className="cursor-text" value={subject} placeholder='Enter your name here' onChange={(e) => setSubject(e.target.value)} /></h3>
                     <div className="mt-2">
                       <p className="text-sm text-gray-500">
                       <div className="w-full ">
@@ -70,7 +70,7 @@ const Modal = ({ showModal, setShowModal }) => {
                                     {items.map((item) => (
                                     <li
                                         key={item}
-                                        className={`flex items-center py-2 px-4 ${
+                                        className={`cursor-pointer hover:bg-blue-50 flex items-center py-2 px-4 ${
                                         selectedItems.includes(item) ? 'bg-blue-100' : ''
                                         }`}
                                         onClick={() => handleToggleItem(item)}
@@ -112,7 +112,7 @@ export default function Example() {
 
   return (
     <>
-      <button type="button" className=" m-2  w-full bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" onClick={() => setShowModal(true)}>
+      <button type="button" className=" mt-5  w-full bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" onClick={() => setShowModal(true)}>
         Send Email
       </button>
       <Modal showModal={showModal} setShowModal={setShowModal} />
