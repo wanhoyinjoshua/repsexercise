@@ -1,4 +1,4 @@
-
+const { i18n } = require('./next-i18next.config')
 
 
 const nextConfig = {
@@ -10,6 +10,7 @@ const nextConfig = {
   images: {
     domains: ['lh3.googleusercontent.com',"s.gravatar.com","anythinpocketimage.s3.ap-southeast-2.amazonaws.com"],
   },
+  i18n,
 };
 
 const withPWA = require('next-pwa')({

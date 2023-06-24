@@ -5,7 +5,11 @@ import styles from '../styles/Home.module.css'
 import Videobutton from '../components/videobutton'
 import DisclaimerPopup from '../components/Disclaimer'
 import dynamic from "next/dynamic";
+import HeroSection from '../components/HeroSection';
 import Link from 'next/link'
+import HeaderNav from '../components/HeaderNav';
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
 const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
 
 export default function Home() {
@@ -91,16 +95,10 @@ Participation in any of the exercises shown on this video is at your own risk. B
         <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
       </Head>
-      <section className='p-4'>
-      <h1>
-        <strong>Exercises for Stroke - REPS</strong>
-      </h1>
-      <h2>REPS consists of two post stroke exercise programs TASK and PUSH.
-Both programs utilise a stragety that can assist recovery after stroke - repetitive exercise. TASK involves the repetitive practice of four everyday tasks whereas PUSH involves the repetitive practice of arm movements.</h2>
-</section>
-      <Videobutton link={"/Push"} content={"Push Exercises"}></Videobutton>
-      <Videobutton link={"/Task"} content={"Task Exercises"}></Videobutton>
-      <Videobutton link={"/Program_info"} content={"Program Info"}></Videobutton>
+      <HeaderNav></HeaderNav>
+      <HeroSection></HeroSection>
+     
+
       
   
       {deferredPrompt? <div className="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4"><div className="container mx-auto flex items-center justify-between">
@@ -118,5 +116,17 @@ Both programs utilise a stragety that can assist recovery after stroke - repetit
    
     </div>
   )
+  }
+}
+
+export async function getStaticProps(context) {
+  // extract the locale identifier from the URL
+  const { locale } = context
+
+  return {
+    props: {
+      // pass the translation props to the page component
+      ...(await serverSideTranslations(locale)),
+    },
   }
 }
