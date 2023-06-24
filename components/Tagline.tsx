@@ -9,7 +9,7 @@ const Tagline = () => {
     <div>
      
 <section className="overflow-hidden bg-white sm:grid sm:grid-cols-2 h-full">
-  <div className="p-8 md:p-12 lg:px-16 lg:py-24">
+  <div className="p-8 md:p-12 lg:px-16 lg:py-24 bg-[url('/logo2.png')]">
     <div
       className="mx-auto max-w-xl text-center "
     >
