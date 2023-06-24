@@ -43,7 +43,7 @@ const Tagline = () => {
   <img
     alt="Student"
     src="/logo.png"
-    className="h-56 w-full object-cover sm:h-full"
+    className="h-56 w-full object-contain sm:h-full"
   />
 </section>
     </div>
