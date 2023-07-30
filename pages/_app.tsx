@@ -6,7 +6,7 @@ import { appWithTranslation } from 'next-i18next'
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  if(router.asPath =='/')  {
+  if(router.asPath =='/' || router.asPath =='/#downloads')  {
     return (
       <Component {...pageProps} />
     )
