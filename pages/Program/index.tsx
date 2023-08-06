@@ -263,7 +263,7 @@ setVideo(link)
     
 
     {data&&data.map((exercise)=>(
-          <li>
+          <li key={exercise["id"]}>
             
           <button
           onClick={()=>{changevideo(exercise["videolink"])}}
