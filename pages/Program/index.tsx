@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
 
 import Loading from '../../components/Loading';
-const index = () => {
+const Index = () => {
 
   const [submittedgoal,setSubmittedGoal]=useState("Submit A Goal and exercises will be recommended below!")
 
@@ -344,4 +344,4 @@ setVideo(link)
   )
 }
 
-export default index
+export default Index
