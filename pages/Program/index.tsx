@@ -91,7 +91,7 @@ setVideo(link)
   className="flex items-center justify-between gap-4 bg-rose-800 px-4 py-3 text-white"
 >
   <p className="text-sm font-medium">
-    This page allows you to find the right exercise videos for me based on your goals. Type your goal in the box below and hit search. Unsure what your goal is? Explore our example goals with the buttons below!
+    This page allows you to find the right exercise videos for you based on your goals. Type your goal in the box below and hit search. Unsure what your goal is? Explore our example goals with the buttons below!
    
   </p>
 
