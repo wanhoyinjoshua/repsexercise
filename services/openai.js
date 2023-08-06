@@ -1,0 +1,38 @@
+import { Configuration, OpenAIApi } from 'openai'
+
+const configuration = new Configuration({
+    apiKey: "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",
+})
+
+const openai = new OpenAIApi(configuration)
+
+export async function chatCompletion({
+    model = 'gpt-3.5-turbo-0613',
+    max_tokens = 1024,
+    temperature = 0,
+    messages,
+    functions,
+    function_call = {"name":"get_product_price"}
+}) {
+    try {
+
+        const result = await openai.createChatCompletion({
+            messages,
+            model,
+            max_tokens,
+            temperature,
+            functions,
+            function_call,
+        })
+
+        if (!result.data.choices[0].message) {
+            throw new Error("No return error from chat");
+        }
+
+        return result.data.choices[0].message //?.content
+
+    } catch(error) {
+        console.log(error)
+        throw error
+    }
+}

@@ -26,7 +26,7 @@ const HeaderNav = () => {
     <div>
         
         
-<nav className="bg-white border-gray-200 dark:bg-gray-900">
+<nav className=" h-[10vh] bg-white border-gray-200 dark:bg-gray-900 ">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
   <a href="https://flowbite.com/" className="flex items-center">
       <img src="/icon-48x48.png" className="h-8 mr-3" alt="Flowbite Logo" />

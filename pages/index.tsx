@@ -95,7 +95,7 @@ Participation in any of the exercises shown on this video is at your own risk. B
         <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
       </Head>
-      <HeaderNav></HeaderNav>
+      
       <HeroSection></HeroSection>
      
 
