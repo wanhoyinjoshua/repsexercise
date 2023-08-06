@@ -1,19 +1,16 @@
 import React,{useState,useEffect} from 'react'
 import dynamic from "next/dynamic";
 const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
-import { useRouter } from 'next/router'
+
 import Loading from '../../components/Loading';
 const index = () => {
-  const router = useRouter()
+
   const [submittedgoal,setSubmittedGoal]=useState("Submit A Goal and exercises will be recommended below!")
-  const { goals } = router.query
+
   const [data, setData] = useState(null);
   const [activevideo,setVideo]=useState(null)
 const [goalloading,setGoalloading]=useState(false)
-  useEffect(() => {
-    // Simulating fetching data based on the 'goals' parameter
- 
-  }, [goals]);
+
 
   const [searchValue, setSearchValue] = useState('');
 
