@@ -4,6 +4,7 @@ const Program_info = () => {
   return (
     <div>
         <h1>Program info</h1>
+        <br></br>
         <section>
             REPS- Recovery Exercise Post Stroke
             <br></br>
