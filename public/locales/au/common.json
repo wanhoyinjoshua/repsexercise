@@ -10,7 +10,9 @@
     "secondtag_2":"Install Now.",
     "downloaddescription":"Exercises are most effective when they are easily accessible. You have the option to access the videos directly on the web or alternatively install them on your phone for quick access from the home screen.",
     "pwa_pop_up_longtext":"Install this app on your device for quick access.",
-    "pwa_button":"Install"
+    "pwa_button":"Install",
+    "gallery":"Exercise Gallery",
+    "ai_tag":"Search Exercises with your Goals!"
 
 
   }

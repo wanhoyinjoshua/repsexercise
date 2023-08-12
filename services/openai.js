@@ -1,4 +1,4 @@
-import { Configuration, OpenAIApi } from 'openai'
+import { Configuration, OpenAIApi } from 'openai-edge'
 import axios from 'axios'
 async function getApiKey() {
     try {
@@ -15,7 +15,8 @@ export async function chatCompletion({
     temperature = 0,
     messages,
     functions,
-    function_call = {"name":"get_product_price"}
+    function_call = {"name":"get_product_price"},
+    stream=true
 }) {
     try {
         const data= await getApiKey()
@@ -31,12 +32,24 @@ export async function chatCompletion({
             temperature,
             functions,
             function_call,
+            stream
         })
 
         if (!result.data.choices[0].message) {
             throw new Error("No return error from chat");
         }
 
+        if (!result.ok) {
+            return new Response(await response.text(), {
+              status: response.status
+            })
+          }
+         
+          // Convert the response into a friendly text-stream
+          const stream = OpenAIStream(result)
+         
+          // Respond with the stream
+          return new StreamingTextResponse(result)
         return result.data.choices[0].message //?.content
 
     } catch(error) {

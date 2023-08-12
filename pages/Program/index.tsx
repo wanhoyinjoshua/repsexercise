@@ -1,7 +1,10 @@
 import React,{useState,useEffect} from 'react'
 import dynamic from "next/dynamic";
 import helper from "../../components/helper"
+import { useCompletion } from 'ai/react'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
+import { dictionary } from '../../constants/videodictionary';
 
 import Loading from '../../components/Loading';
 const Index = () => {
@@ -19,7 +22,44 @@ const [nomatch,setnomatch]=useState(false)
   const handleSearchChange = event => {
     setSearchValue(event.target.value);
   };
-    const dictionary=
+  const {
+    completion,
+    input,
+    stop,
+    isLoading,
+    handleInputChange,
+    handleSubmit,
+   
+  } = useCompletion({
+    api: '/api/completion'
+  })
+  if (isLoading){
+    
+  }
+  useEffect(() => {
+    if (!isLoading && completion) {
+      
+      const completion1 = JSON.parse(completion);
+      const funcArgs = JSON.parse(completion1.function_call.arguments);
+      
+      const fetchData = async () => {
+        const completion1=JSON.parse(completion)
+    const func_args = JSON.parse(completion1.function_call.arguments)
+    const finaldata= queryvideo(func_args["products"])
+    console.log(finaldata)
+    
+    setData(finaldata);
+
+    setVideo(finaldata[0]["videolink"])
+    setSubmittedGoal(searchValue)
+    setGoalloading(false)
+      };
+      
+      fetchData();
+    }
+  }, [isLoading, completion]);
+ 
+    const dictionary1=
     {
       "sittostand_beginner":"https://vimeo.com/268313650/14eafa961c",
       "sittostand_advanced":"https://vimeo.com/268313498/744a2ce4ec",
@@ -66,7 +106,13 @@ const [nomatch,setnomatch]=useState(false)
 setVideo(link)
   }
 
-  async function submit(){
+  async function submit(data){
+    setData(data);
+
+    setVideo(data[0]["videolink"])
+    setSubmittedGoal(searchValue)
+    setGoalloading(false)
+    /*
     setGoalloading(true)
     const data= await helper(searchValue)
     console.log(data)
@@ -75,25 +121,88 @@ setVideo(link)
     setVideo(data[0]["videolink"])
     setSubmittedGoal(searchValue)
     setGoalloading(false)
+    */
     /*
     fetch(`/api/queryvideos?goals=${searchValue}`)
         .then(response => response.json())
         .then(data => {
+          console.log(data)
+          /*
           setData(data);
           setVideo(data[0]["videolink"])
           setSubmittedGoal(searchValue)
           setGoalloading(false)
+          
         })
         .catch(error => {
           console.error('Error fetching data:', error);
         });
         */
+        
 
   }
 
+      
+function queryvideo(listquries){
+  
+  var videolist = [];
+  console.log(listquries);
+  
+  listquries.forEach(query => {
+      const aim = query["aim"];
+      const difficulty = query["difficulty"];
+  
+      const filteredData = Object.keys(dictionary)
+          .filter(key => dictionary[key].aim === aim && dictionary[key].difficulty === difficulty)
+          .map(key => ({ id: dictionary[key].id,name:key, ...dictionary[key] }));
+  
+      videolist.push(filteredData);
+
+      videolist = videolist.flatMap(item => item);
+      
+  });
+  
+
+  if (videolist.length==0){
+
+      listquries.forEach(query => {
+          const body = query["body"];
+         
+          const filteredData = Object.keys(dictionary)
+              .filter(key => dictionary[key].aim === body )
+              .map(key => ({ id: dictionary[key].id,name:key, ...dictionary[key] }));
+      
+          videolist.push(filteredData);
+      });
+
+      const flattenedList = videolist
+      return videolist
+      
+      
+
+  }
+
+
+  return videolist
+  
+  
+  
+
+  
+  
+}
+ 
+
    
   return (
+    
+    
     <div className='h-[90vh]'>
+        
+{JSON.stringify(goalloading)}
+
+
+
         <section className='mb-1.5'>
         <div
   className="flex items-center justify-between gap-4 px-4 py-3 text-black"
@@ -114,7 +223,7 @@ setVideo(link)
   className="rounded-xl border border-gray-100 bg-white p-4 shadow-xl"
 >
   <div className="flex items-start gap-4">
-  {goalloading?<span className="text-green-600">
+  {isLoading?<span className="text-green-600">
   <span className="text-green-600">
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -151,7 +260,7 @@ setVideo(link)
       </svg>
     </span>}
     
-{goalloading?
+{isLoading?
 <div className="flex-1">
       <strong className="block font-medium text-gray-900"> Finding exercises based on your goal </strong>
 
@@ -236,23 +345,25 @@ setVideo(link)
           <div className="mb-3">
           <div className="mb-3">
   <div className="relative mb-4 flex w-full flex-wrap items-stretch">
-    <input
-      type="search"
-      className="relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
-      placeholder="Search"
-      aria-label="Search"
-      aria-describedby="button-addon3" 
-      value={searchValue}
-      onChange={handleSearchChange}/>
-
-    <button
-      className="relative z-[2] rounded-r border-2 border-primary px-6 py-2 text-xs font-medium uppercase text-primary transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
-      type="button"
-      id="button-addon3"
-      onClick={submit}
-      data-te-ripple-init>
-      Search
-    </button>
+  <div className="mx-auto w-full max-w-md py-24 flex flex-col stretch">
+      <form onSubmit={handleSubmit}>
+        <label>
+          Say something...
+          <input
+            className=" w-full max-w-md  border border-gray-300 rounded mb-8 shadow-xl p-2"
+            value={input}
+            onChange={handleInputChange}
+          />
+        </label>
+        
+        <button type="button" onClick={stop}>
+          Stop
+        </button>
+        <button disabled={isLoading}  type="submit">
+          Send
+        </button>
+      </form>
+    </div>
   </div>
 </div>
           
@@ -269,8 +380,9 @@ setVideo(link)
 
 
         </section>
+        <output className='invisible'>Completion result: {completion}</output>
  
-{data&&goalloading==false?  <div className="h-full grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
+{data&&isLoading==false?  <div className="h-full grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
   <div className="h-full rounded-lg bg-gray-100">
   <ul>
 
@@ -321,7 +433,7 @@ setVideo(link)
     {activevideo==null?<div></div>: 
     <section>
       <div className='h-fit rounded-lg bg-gray-200 lg:col-span-2 bg-black'>
-          {goalloading?<Loading></Loading>:<ReactPlayer 
+          {isLoading?<Loading></Loading>:<ReactPlayer 
         width='100%'
         light={true}
         
@@ -357,3 +469,16 @@ setVideo(link)
 }
 
 export default Index
+
+
+export async function getStaticProps(context) {
+  // extract the locale identifier from the URL
+  const { locale } = context
+
+  return {
+    props: {
+      // pass the translation props to the page component
+      ...(await serverSideTranslations(locale)),
+    },
+  }
+}

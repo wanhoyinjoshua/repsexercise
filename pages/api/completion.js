@@ -1,11 +1,13 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import {dictionary} from '../../constants/videodictionary';
-import { chatCompletion } from '../../services/openai'
+
 import { Configuration, OpenAIApi } from 'openai-edge'
 import { OpenAIStream, StreamingTextResponse } from 'ai'
 export const runtime = 'edge'
-export default async  function POST(req) {
-    const { goals } = await req.json()
+export default async function POST(req) {
+    if (req.method === 'POST') {
+        // Process a POST request
+        const { goals } = await req.json()
     console.log(goals)
     console.log("request sent")
     const configuration = new Configuration({
@@ -168,6 +170,8 @@ function queryvideo(listquries){
     
     
 }
+      }
+    
    
 
 
