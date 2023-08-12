@@ -1,10 +1,13 @@
 import { Configuration, OpenAIApi } from 'openai'
-const apiKey = process.env.API_KEY;
-const configuration = new Configuration({
-    apiKey: apiKey
-})
-
-const openai = new OpenAIApi(configuration)
+import axios from 'axios'
+async function getApiKey() {
+    try {
+        const response = await axios.get('/api/apikey');
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching key', error);
+    }
+}
 
 export async function chatCompletion({
     model = 'gpt-3.5-turbo-0613',
@@ -15,7 +18,12 @@ export async function chatCompletion({
     function_call = {"name":"get_product_price"}
 }) {
     try {
-
+        const data= await getApiKey()
+        
+        const configuration = new Configuration({
+            apiKey: data.key,
+        })
+        const openai = new OpenAIApi(configuration)
         const result = await openai.createChatCompletion({
             messages,
             model,
@@ -36,3 +44,4 @@ export async function chatCompletion({
         throw error
     }
 }
+

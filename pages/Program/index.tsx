@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import dynamic from "next/dynamic";
+import helper from "../../components/helper"
 const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
 
 import Loading from '../../components/Loading';
@@ -64,8 +65,15 @@ const [goalloading,setGoalloading]=useState(false)
 setVideo(link)
   }
 
-  function submit(){
+  async function submit(){
     setGoalloading(true)
+    const data= await helper(searchValue)
+    console.log(data)
+    setData(data);
+    setVideo(data[0]["videolink"])
+    setSubmittedGoal(searchValue)
+    setGoalloading(false)
+    /*
     fetch(`/api/queryvideos?goals=${searchValue}`)
         .then(response => response.json())
         .then(data => {
@@ -77,6 +85,7 @@ setVideo(link)
         .catch(error => {
           console.error('Error fetching data:', error);
         });
+        */
 
   }
 
