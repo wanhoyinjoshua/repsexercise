@@ -1,5 +1,5 @@
 import { Configuration, OpenAIApi } from 'openai-edge'
-import axios from 'axios'
+
 async function getApiKey() {
     try {
         const response = await axios.get('/api/apikey');
