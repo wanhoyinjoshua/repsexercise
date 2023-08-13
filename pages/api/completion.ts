@@ -4,11 +4,12 @@ import {dictionary} from '../../constants/videodictionary';
 import { Configuration, OpenAIApi } from 'openai-edge'
 import { OpenAIStream, StreamingTextResponse } from 'ai'
 export const runtime = 'edge'
-export default async function POST(req) {
-    if (req.method === 'POST') {
+export default async function POST(req: Request) {
+   
         // Process a POST request
-        const { goals } = await req.json()
-    console.log(goals)
+        const {prompt} = await req.json()
+    console.log(prompt)
+   
     console.log("request sent")
     const configuration = new Configuration({
         apiKey: process.env.API_KEY,
@@ -65,9 +66,9 @@ export default async function POST(req) {
     //"improve ability to move your fingers" , "improve ability to move forward at the shoulder"
     //`
 
-    let messages = [{ role: 'system', content: function_system_prompt }]
+    let messages:any = [{ role: 'system', content: function_system_prompt }]
 
-    messages.push({ role: 'user', content: `I am looking for exercise recommendations to achieve the following goal:${goals} `})
+    messages.push({ role: 'user', content: `I am looking for exercise recommendations to achieve the following goal:${prompt} `})
 
 
     try {
@@ -77,8 +78,8 @@ export default async function POST(req) {
             model : 'gpt-3.5-turbo-0613',
         max_tokens : 1024,
         temperature : 0,
-        messages,
-        functions,
+        messages:messages,
+        functions:functions,
         function_call : {"name":"get_product_price"},
         stream: true,
         })
@@ -101,20 +102,7 @@ export default async function POST(req) {
           return new StreamingTextResponse(stream)
 
         
-        if(result.content === null) {
-
-            // mock api processing       
-            const func_call = result
-            const func_args = JSON.parse(func_call.function_call.arguments)
-            const finaldata= queryvideo(func_args["products"])
-
-            res.status(200).json(finaldata)
-            
-        }
-        else{
-            res.status(200).json("no match found")
-            
-        }
+       
 
     } catch(error) {
 
@@ -122,59 +110,12 @@ export default async function POST(req) {
 
     }
 
-    
-function queryvideo(listquries){
-    var videolist = [];
-    console.log(listquries);
-    
-    listquries.forEach(query => {
-        const aim = query["aim"];
-        const difficulty = query["difficulty"];
-    
-        const filteredData = Object.keys(dictionary)
-            .filter(key => dictionary[key].aim === aim && dictionary[key].difficulty === difficulty)
-            .map(key => ({ id: dictionary[key].id,name:key, ...dictionary[key] }));
-    
-        videolist.push(filteredData);
 
-        videolist = videolist.flatMap(item => item);
-        
-    });
-    
-
-    if (videolist.length==0){
-
-        listquries.forEach(query => {
-            const body = query["body"];
-           
-            const filteredData = Object.keys(dictionary)
-                .filter(key => dictionary[key].aim === body )
-                .map(key => ({ id: dictionary[key].id,name:key, ...dictionary[key] }));
-        
-            videolist.push(filteredData);
-        });
-
-        const flattenedList = videolist
-        return videolist
-        
-        
-
-    }
-
-
-    return videolist
-    
-    
-    
-  
-    
-    
-}
       }
     
    
 
 
 
-  }
+  
   

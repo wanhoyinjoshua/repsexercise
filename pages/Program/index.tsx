@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useCallback} from 'react'
 import dynamic from "next/dynamic";
 import helper from "../../components/helper"
 import { useCompletion } from 'ai/react'
@@ -7,6 +7,7 @@ const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
 import { dictionary } from '../../constants/videodictionary';
 
 import Loading from '../../components/Loading';
+import Toast from '../../components/Toast';
 const Index = () => {
 
   const [submittedgoal,setSubmittedGoal]=useState("Submit A Goal and exercises will be recommended below!")
@@ -16,6 +17,8 @@ const Index = () => {
 const [goalloading,setGoalloading]=useState(false)
 const [nomatch,setnomatch]=useState(false)
 
+const [showsearch,setShowsearch]=useState(true)
+
 
   const [searchValue, setSearchValue] = useState('');
 
@@ -24,7 +27,9 @@ const [nomatch,setnomatch]=useState(false)
   };
   const {
     completion,
+    complete,
     input,
+    setInput,
     stop,
     isLoading,
     handleInputChange,
@@ -105,13 +110,15 @@ const [nomatch,setnomatch]=useState(false)
     
 setVideo(link)
   }
-
-  async function submit(data){
-    setData(data);
-
-    setVideo(data[0]["videolink"])
-    setSubmittedGoal(searchValue)
-    setGoalloading(false)
+/*
+  async function submit(){
+    const response = await fetch('/api/completion', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name:input })
+    });
     /*
     setGoalloading(true)
     const data= await helper(searchValue)
@@ -137,10 +144,49 @@ setVideo(link)
         .catch(error => {
           console.error('Error fetching data:', error);
         });
-        */
+        
         
 
   }
+  */
+
+  const submit = useCallback(
+    async (c: string) => {
+      console.log(c)
+      
+      const completion = await complete(c)
+      if (!completion) throw new Error('Failed to check typos')
+      
+      // you should more validation here to make sure the response is valid
+      const completion1 = JSON.parse(completion);
+      const funcArgs = JSON.parse(completion1.function_call.arguments);
+      
+      const fetchData = async () => {
+        const completion1=JSON.parse(completion)
+    const func_args = JSON.parse(completion1.function_call.arguments)
+    const finaldata= queryvideo(func_args["products"])
+    console.log(finaldata)
+    
+    setData(finaldata);
+
+    setVideo(finaldata[0]["videolink"])
+    setSubmittedGoal(searchValue)
+    setGoalloading(false)
+    setShowsearch(false)
+    setIsCollapsed(true)
+      };
+      
+      fetchData();
+      
+    },
+    [complete]
+  )
+
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  const toggleCollapse = () => {
+    setIsCollapsed(!isCollapsed);
+  };
 
       
 function queryvideo(listquries){
@@ -199,7 +245,7 @@ function queryvideo(listquries){
     
     <div className='h-[90vh]'>
         
-{JSON.stringify(goalloading)}
+
 
 
 
@@ -265,19 +311,49 @@ function queryvideo(listquries){
       <strong className="block font-medium text-gray-900"> Finding exercises based on your goal </strong>
 
       <p className="mt-1 text-sm text-gray-700">
-        Finding exercises for<strong>{submittedgoal}</strong> <br></br>
+        Finding exercises for<strong>{input}</strong> <br></br>
         Almost there...
       </p>
+      
     </div>:
     <div className="flex-1">
      
+<div className='flex '>
 
-      <strong className="block font-medium text-gray-900"> Search our video library using your goal! </strong>
+      <strong className="block font-medium text-gray-900 mr-4"> Search our video library using your goal! </strong>
 
+      <div
+        className="flex justify-between items-center cursor-pointer"
+        onClick={toggleCollapse}
+        id="toggle_button"
+      > 
+        {isCollapsed?<span className="ml-4 text-red-500 hover:underline hover:text-red-700">Explore</span>:<span className="ml-4 text-red-500 hover:underline hover:text-red-700">Hide</span>}
+        
+        <svg
+          className={`w-4 h-4 transform ${isCollapsed && 'rotate-180'}`}
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </div>
+     </div>
       <div className="mt-1 text-sm text-gray-700">
       <div>
+<section>
+<section id="collaspe_panel"  className={`transition-max-height duration-200 overflow-hidden ${
+          isCollapsed ? 'max-h-0' : 'max-h-80'
+        }`}>
+          
         <button
-          onClick={()=>{setSearchValue("I want to be able better at walking outdoors so I can walk my dog, the exercises should be quite challenging. ")}}
+          onClick={()=>{setInput("I want to be able better at walking outdoors so I can walk my dog, the exercises should be quite challenging. ")}}
     className="inline-flex items-center justify-center rounded-full bg-emerald-100 px-2.5 py-0.5 text-emerald-700 hover:bg-emerald-200 hover:text-emerald-800"
   >
     <svg
@@ -301,7 +377,7 @@ function queryvideo(listquries){
 
         <button
           className="inline-flex items-center justify-center rounded-full bg-amber-100 px-2.5 py-0.5 text-amber-700 hover:bg-amber-200 hover:text-amber-800"
-          onClick={()=>{setSearchValue("I want to be better at opening the water bottle cap with my hands and reaching for the bottle by myself.")}}
+          onClick={()=>{setInput("I want to be better at opening the water bottle cap with my hands and reaching for the bottle by myself.")}}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -323,7 +399,7 @@ function queryvideo(listquries){
 
         <button
           className="inline-flex items-center justify-center rounded-full bg-emerald-100 px-2.5 py-0.5 text-emerald-700 hover:bg-emerald-200 hover:text-emerald-800"
-          onClick={()=>{setSearchValue("I want to be better at moving my shoulder to reach back to tie my hair and be better with my fingers")}}
+          onClick={()=>{setInput("I want to be better at moving my shoulder to reach back to tie my hair and be better with my fingers")}}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -342,32 +418,40 @@ function queryvideo(listquries){
 
           <div className="whitespace-nowrap text-sm">Tie my hair up</div>
         </button>
-          <div className="mb-3">
+        <div className="mb-3">
           <div className="mb-3">
   <div className="relative mb-4 flex w-full flex-wrap items-stretch">
-  <div className="mx-auto w-full max-w-md py-24 flex flex-col stretch">
-      <form onSubmit={handleSubmit}>
+  <div className="mx-auto w-full max-w-md py-4 flex flex-col stretch">
+      
         <label>
-          Say something...
+         Search Exercises to achieve your goals
           <input
             className=" w-full max-w-md  border border-gray-300 rounded mb-8 shadow-xl p-2"
             value={input}
+            
             onChange={handleInputChange}
           />
         </label>
+       
         
-        <button type="button" onClick={stop}>
-          Stop
+        <button className="bg-rose-500 hover:bg-rose-700 text-white font-bold py-2 px-4 rounded" disabled={isLoading} onClick={()=>{submit(input)}} >
+          Find
         </button>
-        <button disabled={isLoading}  type="submit">
-          Send
-        </button>
-      </form>
+     
     </div>
   </div>
 </div>
           
         </div>
+
+        </section>
+       
+       
+
+</section>
+       
+     
+         
 
       </div>
       </div>
@@ -380,8 +464,10 @@ function queryvideo(listquries){
 
 
         </section>
-        <output className='invisible'>Completion result: {completion}</output>
- 
+  {
+    isLoading==false&&completion? <Toast goals={input}></Toast>:<div></div>
+  }
+
 {data&&isLoading==false?  <div className="h-full grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
   <div className="h-full rounded-lg bg-gray-100">
   <ul>
@@ -462,7 +548,7 @@ function queryvideo(listquries){
   </div>
 </div>:<div></div>}
       
-
+<output className='invisible'>Completion result: {completion}</output>
     </div>
    
   )
