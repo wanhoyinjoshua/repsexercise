@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "ai": "^2.1.33",
+    "axios": "^1.4.0",
     "flowbite": "^1.6.6",
     "i18next": "^23.2.3",
     "i18next-browser-languagedetector": "^7.0.2",

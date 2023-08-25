@@ -9,7 +9,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  if(router.asPath =='/' || router.asPath =='/#downloads' ||router.asPath.startsWith('/Program'))  {
+  if(router.asPath =='/' || router.asPath =='/#downloads' ||router.asPath.startsWith('/Program')||router.asPath =='/test')  {
     return (
       <Layout2>
       <Component {...pageProps} />

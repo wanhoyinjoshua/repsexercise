@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/api/queryvideos.js"  ],
+, "pages/api/queryvideos.ts"  ],
   "exclude": [
     "node_modules"
   ]
