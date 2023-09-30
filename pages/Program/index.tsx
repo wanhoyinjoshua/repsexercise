@@ -1,6 +1,7 @@
 import React,{useState,useEffect,useCallback} from 'react'
 import dynamic from "next/dynamic";
 import helper from "../../components/helper"
+import Head from 'next/head';
 import { useCompletion } from 'ai/react'
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
@@ -241,7 +242,15 @@ function queryvideo(listquries){
 
    
   return (
-    
+    <>
+    <Head>
+    <title>REPS- EXERCISES FOR PEOPLE WITH STROKE- Search exercises based on your goals!</title>
+      <link rel="icon" href="/favicon.ico" />
+            <meta charSet="UTF-8" />
+            <meta name={`REPS exercises for people with stroke`} content="You can now easily search through our exercises for poeple with stroke with your own goals!" />
+            <meta name="viewport" content="width=device-width,initial-scale=1.0" /> 
+         
+    </Head>
     
     <div className='h-[90vh]'>
         
@@ -550,6 +559,8 @@ function queryvideo(listquries){
       
 <output className='invisible'>Completion result: {completion}</output>
     </div>
+
+    </>
    
   )
 }
