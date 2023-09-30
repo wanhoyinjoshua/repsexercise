@@ -13,15 +13,15 @@ const Tagline = () => {
     <div
       className="mx-auto max-w-xl text-center "
     >
-      <h2 className="text-2xl font-bold text-grey-100 md:text-3xl">
+      <h1 className="text-2xl font-bold text-grey-100 md:text-3xl">
       {t('tagline')}
       
-      </h2>
+      </h1>
 
-      <p className="hidden  text-grey-100 md:mt-4 md:block">
+      <h2 className="hidden  text-grey-100 md:mt-4 md:block">
       {t('tagdescription')}
       
-      </p>
+      </h2>
 
       <div className="mt-4 md:mt-8 ">
         <section className='flex flex-col gap-y-0.5'>
