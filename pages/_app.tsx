@@ -6,18 +6,22 @@ import Layout2 from '../components/Layout2';
 import { appWithTranslation } from 'next-i18next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-
+import { GoogleAnalytics } from "nextjs-google-analytics";
 function MyApp({ Component, pageProps }) {
+  
   const router = useRouter();
   if(router.asPath =='/' || router.asPath =='/#downloads' ||router.asPath.startsWith('/Program')||router.asPath =='/test')  {
     return (
+
       <Layout2>
+        <GoogleAnalytics trackPageViews />
       <Component {...pageProps} />
       </Layout2>
     )
  }
   return (
     <Layout>
+      <GoogleAnalytics trackPageViews />
   <Component {...pageProps} />
   </Layout>
   

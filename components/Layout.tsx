@@ -25,7 +25,7 @@ const Layout = ({ children }) => {
     const router = useRouter()
   return (
     <div className="mx-auto max-w-full  sm:max-w-[50%]">
-      <GoogleAnalytics />
+     
       <Header />
       
       {children}
