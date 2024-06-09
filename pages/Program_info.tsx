@@ -2,7 +2,7 @@ import React from 'react'
 
 const Program_info = () => {
   return (
-    <div>
+    <div className='p-10'>
         <h1>Program info</h1>
         <br></br>
         <section>
@@ -15,7 +15,7 @@ const Program_info = () => {
             TASK involves the repetitive practice of four everyday tasks whereas PUSH involves the repetitive practice of arm movements.
         </section>
         <section className='flex items-center justify-center'>
-            <img src='https://researchers.mq.edu.au/files-asset/125283120/image001.JPG?w=160&f=webp'></img>
+            <img src='/KScrivener020_close.webp'></img>
         </section>
     </div>
   )

@@ -2,6 +2,7 @@ import React from "react";
 import { useRouter } from "next/router"
 import Modal from "../components/Modal"
 import Image from 'next/image'
+import GoogleAnalytics from "../GoogleAnalytics";
 const Header = () => {
   return (
   <div className="mt-2">
@@ -19,14 +20,12 @@ const Header = () => {
   </div>)
 };
   
-const Footer = () => {
-  return <h3>This is Footer</h3>;
-};
-  
+
 const Layout = ({ children }) => {
     const router = useRouter()
   return (
     <div className="mx-auto max-w-full  sm:max-w-[50%]">
+      <GoogleAnalytics />
       <Header />
       
       {children}
