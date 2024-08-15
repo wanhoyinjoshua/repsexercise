@@ -51,6 +51,7 @@ const [showsearch,setShowsearch]=useState(true)
       const fetchData = async () => {
         const completion1=JSON.parse(completion)
     const func_args = JSON.parse(completion1.function_call.arguments)
+    console.log(funcArgs)
     const finaldata= queryvideo(func_args["products"])
     console.log(finaldata)
     
@@ -151,7 +152,7 @@ setVideo(link)
   }
   */
 
-  const submit = useCallback(
+  const submit = 
     async (c: string) => {
       console.log(c)
       
@@ -179,9 +180,8 @@ setVideo(link)
       
       fetchData();
       
-    },
-    [complete]
-  )
+    }
+  
 
   const [isCollapsed, setIsCollapsed] = useState(false);
 

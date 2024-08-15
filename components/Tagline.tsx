@@ -30,6 +30,7 @@ const Tagline = () => {
               {/* This is how you write single line comments inside JSX 
                <Videobutton link={"/Program"} content={t('ai_tag')}></Videobutton>
               */}
+               <Videobutton link={"/Program"} content={t('ai_tag')}></Videobutton>
              
 
             </div>

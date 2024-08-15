@@ -70,12 +70,13 @@ export default async function POST(req: Request) {
 
     messages.push({ role: 'user', content: `I am looking for exercise recommendations to achieve the following goal:${prompt} `})
 
-
+    console.log("request sent")
     try {
+        console.log("request sent shshshsh")
         
         const result = await openai.createChatCompletion({
            
-            model : 'gpt-3.5-turbo-0613',
+            model : 'gpt-3.5-turbo-0125',
         max_tokens : 1024,
         temperature : 0,
         messages:messages,
@@ -88,11 +89,15 @@ export default async function POST(req: Request) {
             messages,
             functions
         })
-*/
+*/ console.log("request sheesh")
+console.log(result)
         if (!result.ok) {
             return new Response(await result.text(), {
               status: result.status
             })
+          }
+          else{
+            console.log("I fucked up")
           }
          
           // Convert the response into a friendly text-stream
@@ -107,9 +112,10 @@ export default async function POST(req: Request) {
     } catch(error) {
 
         console.log(error)
+        console.log("shitty shot shiit")
 
     }
-
+    console.log("request sent")
 
       }
     
