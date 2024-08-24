@@ -4,34 +4,45 @@ import { ChartPieIcon, CursorArrowRaysIcon, FingerPrintIcon, SquaresPlusIcon } f
 import { Description, Field, Label, Switch } from '@headlessui/react'
 import { VideoCameraIcon, HandRaisedIcon, FireIcon,SunIcon ,LifebuoyIcon} from '@heroicons/react/20/solid'
 import Dialog1 from './Dialog'
-const solutions = [
-  {
-    name: 'Beginner',
-    description: 'Toggle to show or hide beginner exercises',
-    href: '#',
-    icon: SunIcon,
-  },
-  {
-    name: 'Advanced',
-    description: 'Toggle to show or hide advanced exercises',
-    href: '#',
-    icon: FireIcon,
-  },
-  { name: 'PUSH', description: "Toggle to show or hide the PUSH program", href: '#', icon: HandRaisedIcon },
-  {
-    name: 'TASK',
-    description: "Toggle to show or hide the TASK program",
-    href: '#',
-    icon: LifebuoyIcon,
-  },
-]
+
 const callsToAction = [
   { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
   { name: 'Contact sales', href: '#', icon: PhoneIcon },
   { name: 'View all products', href: '#', icon: RectangleGroupIcon },
 ]
 
-export default function TopBar() {
+export default function TopBar(props:{
+    searchConditions:any
+        setConditons:any
+        setPreview:any
+
+}) {
+    const solutions = [
+  {
+    name: 'Beginner',
+    description: 'Toggle to show or hide beginner exercises',
+    href: '#',
+    booleanval:"beginner",
+    icon: SunIcon,
+  },
+  {
+    name: 'Advanced',
+    description: 'Toggle to show or hide advanced exercises',
+    href: '#',
+    booleanval:"advanced",
+    icon: FireIcon,
+  },
+  { name: 'PUSH', 
+    booleanval:"push",
+    description: "Toggle to show or hide the PUSH program", href: '#', icon: HandRaisedIcon },
+  {
+    name: 'TASK',
+    description: "Toggle to show or hide the TASK program",
+    booleanval:"task",
+    href: '#',
+    icon: LifebuoyIcon,
+  },
+]
   return (
     <>
     <Popover className="relative isolate z-50 shadow">
@@ -45,6 +56,7 @@ export default function TopBar() {
           </PopoverButton>
 
           <button
+          onClick={()=>{props.setPreview(true)}}
         type="button"
         className="inline-flex items-center gap-x-2 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
       >
@@ -53,6 +65,7 @@ export default function TopBar() {
       </button>
 
             </section>
+            <div>{`(${14} videos available)`}</div>
          
         </div>
       </div>
@@ -97,6 +110,11 @@ export default function TopBar() {
           {solutions.map((item) => (
             <div
               key={item.name}
+              onClick={()=>{
+                console.log("hihi")
+                var initial=props.searchConditions
+                initial[item.booleanval]=!initial[item.booleanval]
+                props.setConditons({...initial})}}
               className="group relative -mx-3 flex gap-6 rounded-lg p-3 text-sm leading-6 hover:bg-gray-50 sm:flex-col sm:p-6"
             >
               <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
@@ -110,8 +128,8 @@ export default function TopBar() {
                     <section className='flex justify-between'>
                   {item.name}
                      <Switch
-        checked={true}
-        onChange={()=>{}}
+        checked={props.searchConditions[item.booleanval]}
+        
         className="group relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 data-[checked]:bg-indigo-600"
       >
         <span
