@@ -10,7 +10,7 @@ import { GoogleAnalytics } from "nextjs-google-analytics";
 function MyApp({ Component, pageProps }) {
   
   const router = useRouter();
-  if(router.asPath =='/' || router.asPath =='/#downloads' ||router.asPath.startsWith('/Program')||router.asPath =='/test')  {
+  if(router.asPath =='/' )  {
     return (
 
       <Layout2>
@@ -18,14 +18,19 @@ function MyApp({ Component, pageProps }) {
       <Component {...pageProps} />
       </Layout2>
     )
- }
+ }else{
   return (
-    <Layout>
+
+    <Layout2>
+      <div className=' py-10'>
       <GoogleAnalytics trackPageViews />
-  <Component {...pageProps} />
-  </Layout>
-  
+    <Component {...pageProps} />
+    </div>
+    </Layout2>
   )
+
+ }
+ 
 }
 
 export default appWithTranslation(MyApp)

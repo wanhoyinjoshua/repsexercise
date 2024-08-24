@@ -1,7 +1,8 @@
 export const dictionary=
 {
   "sittostand_beginner":{
-
+    "label":"Sit to stand (beginner). It involves standing up from a chair and sitting down again.",
+    "img":"https://www.mq.edu.au/__data/assets/image/0004/715171/Beginner-sit-to-stand.jpg",
     "bodypart":"legs",
     "impairment":"strength",
     "aim":"improve ability to stand up",
@@ -17,6 +18,9 @@ export const dictionary=
 
   },
   "sittostand_advanced":{
+
+    "label":"Sit to stand (advanced). It involves standing up from a chair and sitting down again.",
+    "img":"https://www.mq.edu.au/__data/assets/image/0008/715166/Advanced-sit-to-stand.jpg",
 
     "bodypart":"legs",
     "impairment":"strength",
@@ -34,8 +38,11 @@ export const dictionary=
   ,
   "stepping_beginner":{
 
+    "label":"Stepping (beginner). It involves tapping your foot on the coloured circles of the TASK floormat.",
+    "img":"https://www.mq.edu.au/__data/assets/image/0006/715173/Beginner-stepping.jpg",
+
     "bodypart":"legs",
-    "aim":"improve balance and walking",
+    "aim":"This exercise aims to improve your single leg balance and will improve balance and walking",
     "impairment":"balance",
     "difficulty":"beginner",
     "activity":"walking",
@@ -48,8 +55,11 @@ export const dictionary=
   },
   
   "stepping_advanced":{ 
+    "label":"Stepping (advanced). It involves tapping your foot on the coloured circles of the TASK floormat.",
+    "img":"https://www.mq.edu.au/__data/assets/image/0011/715169/Advanced-Stepping.jpg",
+
   "bodypart":"legs",
-  "aim":"improve balance and walking",
+  "aim":"This exercise aims to improve your single leg balance and will improve balance and walking",
   "impairment":"balance",
   "difficulty":"advanced",
   "activity":"walking",
@@ -62,6 +72,9 @@ export const dictionary=
 
 
   "step_tap_beginner":{ 
+    "label":"Step tap (beginner). It involves tapping your foot on a step whilst balancing with your other leg.",
+    "img":"https://www.mq.edu.au/__data/assets/image/0007/715174/Beginner-step-tap.jpg",
+
     "bodypart":"legs",
     "aim":"improve balance and walking",
     "impairment":"balance",
@@ -74,6 +87,8 @@ export const dictionary=
 }
     ,
   "step_tap_advanced":{
+"label":"Step tap (advanced). It involves tapping your foot on a step whilst balancing with your other leg.",
+    "img":"https://www.mq.edu.au/__data/assets/image/0010/715168/Advanced-step-tap.jpg",
 
     "bodypart":"legs",
     "aim":"improve balance and walking",
@@ -88,6 +103,9 @@ export const dictionary=
   ,
 
   "stand_and_reach_beginner":{
+    "label":"Stand and reach (beginner). This involves reaching towards a cup and moving it to different coloured circle on the TASK placemat.",
+    "img":"https://www.mq.edu.au/__data/assets/image/0005/715172/Beginner-stand-and-reach.jpg",
+
 
     "bodypart":"legs/arm",
     "aim":"improve ability to reach for objects while standing",
@@ -104,6 +122,11 @@ export const dictionary=
   ,
   "stand_and_reach_advanced":{
 
+    "label":"Stand and reach (advanced). It involves reaching towards a wall in multiple directions.",
+    "img":"https://www.mq.edu.au/__data/assets/image/0009/715167/Advanced-stand-and-reach.jpg",
+
+
+
     "bodypart":"legs/arm",
     "aim":"improve ability to reach for objects while standing",
     "impairment":"balance",
@@ -118,6 +141,10 @@ export const dictionary=
   
   ,
   "sit_and_reach_beginner":{
+    "label":"Sit and reach (beginner). It involves reaching towards a wall in multiple directions.",
+    "img":"https://www.mq.edu.au/__data/assets/image/0003/715170/Beginner-sit-and-reach.jpg",
+
+
 
     "bodypart":"legs",
     "aim":"improve ability to sitting balance while reaching objects",
@@ -135,6 +162,11 @@ export const dictionary=
   ,
   "sit_and_reach_advanced":{
 
+    "label":"Sit and reach (advanced). This involves reaching towards a cup and moving it to different coloured circle on the TASK placemat.",
+    "img":"https://www.mq.edu.au/__data/assets/image/0003/715170/Beginner-sit-and-reach.jpg",
+
+
+
     "bodypart":"legs",
     "aim":"improve ability to sitting balance while reaching objects",
     "impairment":"balance",
@@ -150,6 +182,7 @@ export const dictionary=
   },
  
   "The_shoulder_PUSH":{
+    "img":"/PUSH/shoulder_push.png",
 
     "bodypart":"arms",
     "aim":"improve ability to move forward at the shoulder",
@@ -168,6 +201,8 @@ export const dictionary=
   ,
   "The_arm_PUSH":{
 
+    "img":"/PUSH/arm_push.png",
+
     "bodypart":"arms",
     "aim":"improve ability to move your arm forward",
     "impairment":"strength",
@@ -185,6 +220,8 @@ export const dictionary=
   "The_elbow_bend_and_straighten":
   {
 
+    "img":"/PUSH/elbow_straighten.png",
+
     "bodypart":"arms",
     "aim":"improve ability to move your arm forward",
     "impairment":"strength",
@@ -201,6 +238,7 @@ export const dictionary=
   ,
   "Visualise_hand_movements":
   {
+    "img":"/PUSH/vis_hand_movement.png",
 
     "bodypart":"arms",
     "aim":"improve ability to move your fingers",
@@ -217,7 +255,7 @@ export const dictionary=
   
   ,
   "The_thumb_slide":{
-
+    "img":"/PUSH/thumb_slide.png",
     "bodypart":"arms",
     "aim":"improve ability to move your fingers",
     "impairment":"strength",
@@ -235,6 +273,8 @@ export const dictionary=
 
 
   "Hold_onto_your_head":{
+
+    "img":"/PUSH/hold_on_to_your_head.png",
     
     "bodypart":"arms",
     "aim":"improve ability to move forward at the shoulder",
@@ -253,6 +293,8 @@ export const dictionary=
   
   ,
   "The_in_and_out":{
+
+    "img":"/PUSH/in_and_out.png",
 
     "bodypart":"arms",
     "aim":"improve ability to move forward at the shoulder",

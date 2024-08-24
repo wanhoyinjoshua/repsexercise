@@ -26,7 +26,7 @@ const Tagline = () => {
       <div className="mt-4 md:mt-8 ">
         <section className='flex flex-col gap-y-0.5'>
             <div  className='flex justify-center flex-row gap-x-0.5'>
-            <Videobutton link={"/Gallery"} content={t('gallery')}></Videobutton>
+            <Videobutton link={"/ExerciseGallery"} content={t('gallery')}></Videobutton>
               {/* This is how you write single line comments inside JSX 
                <Videobutton link={"/Program"} content={t('ai_tag')}></Videobutton>
               */}

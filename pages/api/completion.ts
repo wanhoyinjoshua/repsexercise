@@ -36,7 +36,7 @@ export default async function POST(req: Request) {
     const functions = [
         {
             name: 'get_product_price', 
-            description: 'Get aim of the uuserinput to generate the exercise recommendations', 
+            description: 'The prompt contains the goal of the user, undertand the prompt and generate exercise recommendations that will best help patient to achieve their goals', 
             parameters: {
                 type: 'object', 
                 properties: {

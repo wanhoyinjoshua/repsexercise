@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import React, { useState, useEffect } from 'react';
-import styles from '../styles/Home.module.css'
+
 import Videobutton from '../components/videobutton'
 import DisclaimerPopup from '../components/Disclaimer'
 import dynamic from "next/dynamic";
