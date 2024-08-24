@@ -5,7 +5,7 @@ import Head from 'next/head';
 import { useCompletion } from 'ai/react'
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
-import { dictionary } from '../../constants/videodictionary';
+import { dictionary } from '../ExerciseGallery/constants/videodictionary';
 
 import Loading from '../../components/Loading';
 import Toast from '../../components/Toast';
