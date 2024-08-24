@@ -1,6 +1,7 @@
 export const dictionary=
 {
   "sittostand_beginner":{
+    "filter":["beginner","task"],
     "label":"Sit to stand (beginner). It involves standing up from a chair and sitting down again.",
     "img":"https://www.mq.edu.au/__data/assets/image/0004/715171/Beginner-sit-to-stand.jpg",
     "bodypart":"legs",
@@ -18,6 +19,7 @@ export const dictionary=
 
   },
   "sittostand_advanced":{
+    "filter":["advanced","task"],
 
     "label":"Sit to stand (advanced). It involves standing up from a chair and sitting down again.",
     "img":"https://www.mq.edu.au/__data/assets/image/0008/715166/Advanced-sit-to-stand.jpg",
@@ -37,6 +39,7 @@ export const dictionary=
   }
   ,
   "stepping_beginner":{
+    "filter":["beginner","task"],
 
     "label":"Stepping (beginner). It involves tapping your foot on the coloured circles of the TASK floormat.",
     "img":"https://www.mq.edu.au/__data/assets/image/0006/715173/Beginner-stepping.jpg",
@@ -55,6 +58,7 @@ export const dictionary=
   },
   
   "stepping_advanced":{ 
+    "filter":["advanced","task"],
     "label":"Stepping (advanced). It involves tapping your foot on the coloured circles of the TASK floormat.",
     "img":"https://www.mq.edu.au/__data/assets/image/0011/715169/Advanced-Stepping.jpg",
 
@@ -72,6 +76,7 @@ export const dictionary=
 
 
   "step_tap_beginner":{ 
+    "filter":["beginner","task"],
     "label":"Step tap (beginner). It involves tapping your foot on a step whilst balancing with your other leg.",
     "img":"https://www.mq.edu.au/__data/assets/image/0007/715174/Beginner-step-tap.jpg",
 
@@ -87,6 +92,7 @@ export const dictionary=
 }
     ,
   "step_tap_advanced":{
+    "filter":["advanced","task"],
 "label":"Step tap (advanced). It involves tapping your foot on a step whilst balancing with your other leg.",
     "img":"https://www.mq.edu.au/__data/assets/image/0010/715168/Advanced-step-tap.jpg",
 
@@ -103,6 +109,7 @@ export const dictionary=
   ,
 
   "stand_and_reach_beginner":{
+    "filter":["beginner","task"],
     "label":"Stand and reach (beginner). This involves reaching towards a cup and moving it to different coloured circle on the TASK placemat.",
     "img":"https://www.mq.edu.au/__data/assets/image/0005/715172/Beginner-stand-and-reach.jpg",
 
@@ -121,6 +128,7 @@ export const dictionary=
   
   ,
   "stand_and_reach_advanced":{
+    "filter":["advanced","task"],
 
     "label":"Stand and reach (advanced). It involves reaching towards a wall in multiple directions.",
     "img":"https://www.mq.edu.au/__data/assets/image/0009/715167/Advanced-stand-and-reach.jpg",
@@ -141,6 +149,8 @@ export const dictionary=
   
   ,
   "sit_and_reach_beginner":{
+
+    "filter":["beginner","task"],
     "label":"Sit and reach (beginner). It involves reaching towards a wall in multiple directions.",
     "img":"https://www.mq.edu.au/__data/assets/image/0003/715170/Beginner-sit-and-reach.jpg",
 
@@ -161,6 +171,7 @@ export const dictionary=
   
   ,
   "sit_and_reach_advanced":{
+    "filter":["advanced","task"],
 
     "label":"Sit and reach (advanced). This involves reaching towards a cup and moving it to different coloured circle on the TASK placemat.",
     "img":"https://www.mq.edu.au/__data/assets/image/0003/715170/Beginner-sit-and-reach.jpg",
@@ -182,6 +193,8 @@ export const dictionary=
   },
  
   "The_shoulder_PUSH":{
+    "filter":["beginner","advanced","push"],
+
     "img":"/PUSH/shoulder_push.png",
 
     "bodypart":"arms",
@@ -200,7 +213,7 @@ export const dictionary=
   
   ,
   "The_arm_PUSH":{
-
+    "filter":["beginner","advanced","push"],
     "img":"/PUSH/arm_push.png",
 
     "bodypart":"arms",
@@ -219,6 +232,7 @@ export const dictionary=
   ,
   "The_elbow_bend_and_straighten":
   {
+    "filter":["beginner","advanced","push"],
 
     "img":"/PUSH/elbow_straighten.png",
 
@@ -238,6 +252,7 @@ export const dictionary=
   ,
   "Visualise_hand_movements":
   {
+    "filter":["beginner","advanced","push"],
     "img":"/PUSH/vis_hand_movement.png",
 
     "bodypart":"arms",
@@ -255,6 +270,7 @@ export const dictionary=
   
   ,
   "The_thumb_slide":{
+    "filter":["beginner","advanced","push"],
     "img":"/PUSH/thumb_slide.png",
     "bodypart":"arms",
     "aim":"improve ability to move your fingers",
@@ -273,6 +289,7 @@ export const dictionary=
 
 
   "Hold_onto_your_head":{
+    "filter":["beginner","advanced","push"],
 
     "img":"/PUSH/hold_on_to_your_head.png",
     
@@ -293,6 +310,7 @@ export const dictionary=
   
   ,
   "The_in_and_out":{
+    "filter":["beginner","advanced","push"],
 
     "img":"/PUSH/in_and_out.png",
 

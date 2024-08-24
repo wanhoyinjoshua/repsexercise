@@ -12,6 +12,7 @@ const Index = () => {
     const [searchConditions,setConditons]=useState(searchInitialState)
     const [isPreview,setPreview]=useState(false)
     const [videoId,setVideoId]=useState([])
+    const [count,setCount]=useState()
 
     function toggleVideo(key:string){
         const id= dictionary[key].id
@@ -23,6 +24,29 @@ const Index = () => {
             setVideoId([...videoId,id])
         }
 
+
+    }
+    function isMatch(key){
+        var object =dictionary[key]
+        var push=searchConditions.push==object.filter.includes("push")
+        var task=searchConditions.task==object.filter.includes("task")
+        var beginner=searchConditions.beginner==object.filter.includes("beginner")
+        var advanced=searchConditions.advanced==object.filter.includes("advanced")
+        if((push||task)&&(beginner||advanced)){
+            return true
+        }else{
+            return false
+        }
+    }
+    function filtered(){
+        var fullobject=dictionary
+       const keyss= Object.keys(fullobject).filter((key)=>{
+            if(isMatch(key)){
+                return key
+            }
+        })
+
+        return keyss
 
     }
 
@@ -41,6 +65,7 @@ const Index = () => {
         searchConditions={searchConditions}
         setConditons={setConditons}
         setPreview={setPreview}
+        count={filtered().length}
 
         ></TopBar>
             
@@ -50,7 +75,7 @@ const Index = () => {
                 <div className='w-11/12 flex flex-wrap justify-start'>
         
                 {
-                    Object.keys(dictionary).map((key)=>{
+                    filtered().map((key)=>{
                         return <div onClick={()=>toggleVideo(key)} className={`${videoId.includes(dictionary[key].id)?"bg-red-100":""} relative w-96 aspect-video m-10`}>
                             <div className='absolute rounded-full top-0 right-0 w-1/4 aspect-square bg-slate-50  border-4 border-red-700'>
         

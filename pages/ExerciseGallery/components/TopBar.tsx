@@ -4,6 +4,7 @@ import { ChartPieIcon, CursorArrowRaysIcon, FingerPrintIcon, SquaresPlusIcon } f
 import { Description, Field, Label, Switch } from '@headlessui/react'
 import { VideoCameraIcon, HandRaisedIcon, FireIcon,SunIcon ,LifebuoyIcon} from '@heroicons/react/20/solid'
 import Dialog1 from './Dialog'
+import { count } from 'console'
 
 const callsToAction = [
   { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
@@ -15,6 +16,7 @@ export default function TopBar(props:{
     searchConditions:any
         setConditons:any
         setPreview:any
+        count:any
 
 }) {
     const solutions = [
@@ -65,7 +67,7 @@ export default function TopBar(props:{
       </button>
 
             </section>
-            <div>{`(${14} videos available)`}</div>
+            <div>{`(${props.count} videos available)`}</div>
          
         </div>
       </div>
