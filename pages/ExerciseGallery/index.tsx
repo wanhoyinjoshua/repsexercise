@@ -76,7 +76,7 @@ const Index = () => {
         
                 {
                     filtered().map((key)=>{
-                        return <div onClick={()=>toggleVideo(key)} className={`${videoId.includes(dictionary[key].id)?"bg-red-100":""} relative w-96 aspect-video m-10`}>
+                        return <div key={"hi"} onClick={()=>toggleVideo(key)} className={`${videoId.includes(dictionary[key].id)?"bg-red-100":""} relative w-96 aspect-video m-10`}>
                             <div className='absolute rounded-full top-0 right-0 w-1/4 aspect-square bg-slate-50  border-4 border-red-700'>
         
                             <div className={`${videoId.includes(dictionary[key].id)?"opacity-100":"opacity-0"}w-full h-full  text-green hover:opacity-100`}>

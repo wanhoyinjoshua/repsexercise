@@ -74,7 +74,7 @@ export default function TopBar(props:{
 
       <PopoverPanel
         transition
-        className="absolute inset-x-0 top-0 -z-10 bg-white pt-16 shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
+        className="absolute inset-x-0 top-5 sm:top-0 md:top-0 -z-10 bg-white pt-16 shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
       >
         {/**  <div className="bg-gray-50">
           <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
