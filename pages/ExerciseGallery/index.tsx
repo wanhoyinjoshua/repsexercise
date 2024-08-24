@@ -1,5 +1,5 @@
 import React from 'react'
-import { dictionary } from '../../constants/videodictionary'
+import { dictionary } from './constants/videodictionary'
 import { useState } from 'react'
 import TopBar from './components/TopBar'
 import { searchInitialState } from './constants/searchInitialState'
@@ -81,7 +81,7 @@ const Index = () => {
 
         return (
             <div>
-                <div className='z-50 sticky top-0'>
+                <div className='z-50'>
         <TopBar 
         searchConditions={searchConditions}
         setConditons={setConditons}
