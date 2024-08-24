@@ -1,8 +1,8 @@
 import React from 'react'
-import { dictionary } from './constants/videodictionary'
+import { dictionary } from '../../constants/videodictionary'
 import { useState } from 'react'
 import TopBar from './components/TopBar'
-import { searchInitialState } from './constants/searchInitialState'
+import { searchInitialState } from '../../constants/searchInitialState'
 import Preview from './components/Preview'
 
 const Index = () => {
