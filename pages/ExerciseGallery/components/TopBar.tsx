@@ -21,29 +21,23 @@ export default function TopBar(props:{
 }) {
     const solutions = [
   {
-    name: 'Beginner',
+    name: 'Task (Beginner)',
     description: 'Toggle to show or hide beginner exercises',
     href: '#',
-    booleanval:"beginner",
+    booleanval:"beginner_task",
     icon: SunIcon,
   },
   {
-    name: 'Advanced',
+    name: 'Task (Advanced)',
     description: 'Toggle to show or hide advanced exercises',
     href: '#',
-    booleanval:"advanced",
+    booleanval:"advanced_task",
     icon: FireIcon,
   },
   { name: 'PUSH', 
     booleanval:"push",
     description: "Toggle to show or hide the PUSH program", href: '#', icon: HandRaisedIcon },
-  {
-    name: 'TASK',
-    description: "Toggle to show or hide the TASK program",
-    booleanval:"task",
-    href: '#',
-    icon: LifebuoyIcon,
-  },
+  
 ]
   return (
     <>
@@ -64,7 +58,9 @@ export default function TopBar(props:{
       >
         <VideoCameraIcon aria-hidden="true" className="-ml-0.5 h-5 w-5" />
         Preview {`(${3})`}
+
       </button>
+    
 
             </section>
             <div>{`(${props.count} videos available)`}</div>
@@ -76,6 +72,7 @@ export default function TopBar(props:{
         transition
         className="absolute inset-x-0 top-5 sm:top-0 md:top-0 -z-10 bg-white pt-16 shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
       >
+        
         {/**  <div className="bg-gray-50">
           <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div>
@@ -108,7 +105,7 @@ export default function TopBar(props:{
         </div>*/}
             
 
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-2 px-6 py-6 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-0 sm:py-10 lg:grid-cols-4 lg:gap-4 lg:px-8 xl:gap-8">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-2 px-6 py-6 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-0 sm:py-10 lg:grid-cols-3 lg:gap-4 lg:px-8 xl:gap-8">
           {solutions.map((item) => (
             <div
               key={item.name}

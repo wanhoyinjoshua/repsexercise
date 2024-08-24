@@ -1,7 +1,7 @@
 export const searchInitialState =
 {
-    beginner:true,
-    advanced:true,
+    beginner_task:true,
+    advanced_task:true,
     push:true,
-    task:true
+    
 }

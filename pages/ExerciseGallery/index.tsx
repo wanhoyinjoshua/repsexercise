@@ -28,15 +28,34 @@ const Index = () => {
     }
     function isMatch(key){
         var object =dictionary[key]
-        var push=searchConditions.push==object.filter.includes("push")
-        var task=searchConditions.task==object.filter.includes("task")
-        var beginner=searchConditions.beginner==object.filter.includes("beginner")
-        var advanced=searchConditions.advanced==object.filter.includes("advanced")
-        if((push||task)&&(beginner||advanced)){
+        //of all criterias, apply each one and then determine if 
+        // that one is a=correct all criterias must be correct 
+        
+        
+        console.log(searchConditions)
+        var string=[]
+        var isbeginner=searchConditions.beginner_task&&object.filter.includes("beginner_task")
+        var isadvanced=searchConditions.advanced_task&&object.filter.includes("advanced_task")
+        var isPush=searchConditions.push&&object.filter.includes("push")
+        
+        
+       
+        if(isPush||isadvanced||isbeginner){
+            
             return true
-        }else{
+
+        }
+
+        else{
             return false
         }
+
+
+      
+
+
+       
+       
     }
     function filtered(){
         var fullobject=dictionary
@@ -45,6 +64,7 @@ const Index = () => {
                 return key
             }
         })
+        console.log(keyss)
 
         return keyss
 
