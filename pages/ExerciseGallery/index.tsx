@@ -81,6 +81,7 @@ const Index = () => {
 
         return (
             <div>
+                <div className='z-50 sticky top-0'>
         <TopBar 
         searchConditions={searchConditions}
         setConditons={setConditons}
@@ -88,6 +89,7 @@ const Index = () => {
         count={filtered().length}
 
         ></TopBar>
+        </div>
             
         
             

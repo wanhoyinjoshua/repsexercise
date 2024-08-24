@@ -123,7 +123,7 @@ export default function TopBar(props:{
            
 
               <div>
-                <a href={item.href} className="font-semibold text-gray-900">
+                <div  className="font-semibold text-gray-900">
                     <section className='flex justify-between'>
                   {item.name}
                      <Switch
@@ -138,7 +138,7 @@ export default function TopBar(props:{
                     </Switch>
                     </section>
                   <span className="absolute inset-0" />
-                </a>
+                </div>
                 <p className="mt-1 text-gray-600">{item.description}</p>
               </div>
             </div>
