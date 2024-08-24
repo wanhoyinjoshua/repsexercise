@@ -1,5 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import {dictionary} from '../../constants/videodictionary';
+
+import { dictionary } from '../ExerciseGallery/constants/videodictionary';
 
 import { Configuration, OpenAIApi } from 'openai-edge'
 import { OpenAIStream, StreamingTextResponse } from 'ai'
