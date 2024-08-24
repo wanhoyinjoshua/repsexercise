@@ -1,5 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import {dictionary} from '../constants/videodictionary'
+
+import { dictionary } from '../pages/ExerciseGallery/constants/videodictionary'
 import { chatCompletion } from '../services/openai'
 export default async function send(goals) {
     
