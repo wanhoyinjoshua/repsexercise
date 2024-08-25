@@ -18,7 +18,7 @@ const TestHero = () => {
               REPS consists of two post stroke exercise programs TASK and PUSH. Both programs utilise a stragety that can assist recovery after stroke - repetitive exercise. TASK involves the repetitive practice of four everyday tasks whereas PUSH involves the repetitive practice of arm movements.
               </h2>
               <div className="mt-10 flex items-center gap-x-6">
-                <Videobutton link={"/Program"} content={"Exercise Videos"}></Videobutton>
+                <Videobutton link={"/ExerciseGallery"} content={"Exercise Videos"}></Videobutton>
                 <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
                   Learn more <span aria-hidden="true">→</span>
                 </a>
