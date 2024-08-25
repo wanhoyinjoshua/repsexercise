@@ -17,8 +17,8 @@ const Page = () => {
     const [videoId,setVideoId]=useState<any>([])
     const [count,setCount]=useState()
 
-    function toggleVideo(key:string){
-        const id= dictionary[key as keyof typeof dictionary].id
+    function toggleVideo(object){
+        const id= object.id
 
         if (videoId.includes(id)){
             var filtered= videoId.filter((e:any)=>e!=id)
@@ -29,8 +29,8 @@ const Page = () => {
 
 
     }
-    function isMatch(key:string){
-        var object =dictionary[key as keyof typeof dictionary]
+    function isMatch(object){
+        
         //of all criterias, apply each one and then determine if 
         // that one is a=correct all criterias must be correct 
         
@@ -61,15 +61,16 @@ const Page = () => {
        
     }
     function filtered(){
-        var fullobject=dictionary
-       const keyss= Object.keys(fullobject).filter((key)=>{
-            if(isMatch(key)){
-                return key
+       
+        //a lis to objects 
+       const filteredObjects= dictionary.filter((object)=>{
+            if(isMatch(object)){
+                return object
             }
         })
-        console.log(keyss)
+    
 
-        return keyss
+        return filteredObjects
 
     }
 
@@ -101,12 +102,12 @@ const Page = () => {
                 <div className='w-11/12 flex flex-wrap justify-start'>
         
                 {
-                    filtered().map((key)=>{
-                        return <div key={"hi"} onClick={()=>toggleVideo(key)} className={`${videoId.includes(dictionary[key as keyof typeof dictionary].id)?"bg-red-100":""} relative w-96 aspect-video m-10`}>
+                    filtered().map((object)=>{
+                        return <div key={"hi"} onClick={()=>toggleVideo(object)} className={`${videoId.includes(object.id)?"bg-red-100":""} relative w-96 aspect-video m-10`}>
                             <div className='absolute rounded-full top-0 right-0 w-1/4 aspect-square bg-slate-50  border-4 border-red-700'>
         
-                            <div className={`${videoId.includes(dictionary[key as keyof typeof dictionary].id)?"opacity-100":"opacity-0"}w-full h-full  text-green hover:opacity-100`}>
-                            {videoId.includes(dictionary[key as keyof typeof dictionary].id)&&
+                            <div className={`${videoId.includes(object.id)?"opacity-100":"opacity-0"}w-full h-full  text-green hover:opacity-100`}>
+                            {videoId.includes(object.id)&&
                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-3">
                              <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                            </svg>
@@ -117,9 +118,9 @@ const Page = () => {
                                 </div>
                                 </div>
                             
-                            <img src={dictionary[key as keyof typeof dictionary].img}></img>
+                            <img src={object.img}></img>
         
-                            {dictionary[key as keyof typeof dictionary].label}
+                            {object.label}
         
                           
                             

@@ -3,12 +3,27 @@ import React from 'react'
 import { VideoCameraIcon } from '@heroicons/react/24/outline'
 import SortableList, { SortableItem } from 'react-easy-sort'
 import Videobutton from '@/app/components/ui/VideoButton'
-
+import { dictionary } from '@/constants/videodictionary'
 const Preview = (props:{
     setPreview:any
     videoId:any
 }) => {
-  const [items, setItems] = React.useState(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'])
+
+  function convertid2Object(idarray){
+    const object= idarray.map((id)=>{
+      return dictionary.filter((object)=>{
+        return object.id==id
+
+      })[0]
+
+    })
+
+    return object
+
+
+  }
+
+  const [items, setItems] = React.useState(convertid2Object(props.videoId))
   const onSortEnd = (oldIndex: number, newIndex: number) => {
     setItems([...items])
   }
@@ -47,9 +62,9 @@ const Preview = (props:{
 
 <SortableList onSortEnd={onSortEnd} className="list" draggedItemClassName="dragged">
 {items.map((item) => (
-<SortableItem key={item}>
+<SortableItem key={item.id}>
   <div className='item'>
-  <Videobutton link={"/"} content={item}  ></Videobutton>
+  <Videobutton link={"/"} content={item.label}  ></Videobutton>
 
   </div>
  

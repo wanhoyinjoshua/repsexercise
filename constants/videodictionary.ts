@@ -1,43 +1,7 @@
-type dict={
-  sittostand_beginner:any,
-  sittostand_advanced:any,
-  stepping_beginner:any,
-  stepping_advanced:any,
-  step_tap_beginner:any,
-  step_tap_advanced:any,
-  stand_and_reach_beginner:any,
-  stand_and_reach_advanced:any,
-  sit_and_reach_beginner:any,
-  sit_and_reach_advanced:any,
-  The_shoulder_PUSH:any,
-  The_arm_PUSH:any,
-  The_elbow_bend_and_straighten:any,
-  Visualise_hand_movements:any,
-  The_thumb_slide:any,
-  Hold_onto_your_head:any,
-  The_in_and_out:any
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
-export const dictionary:dict=
-{
-  "sittostand_beginner":{
+export const dictionary:any[]=
+[
+  {
     "filter":["beginner_task"],
     "label":"Sit to stand (beginner). It involves standing up from a chair and sitting down again.",
     "img":"https://www.mq.edu.au/__data/assets/image/0004/715171/Beginner-sit-to-stand.jpg",
@@ -55,7 +19,7 @@ export const dictionary:dict=
 
 
   },
-  "sittostand_advanced":{
+  {
     "filter":["advanced_task"],
 
     "label":"Sit to stand (advanced). It involves standing up from a chair and sitting down again.",
@@ -75,7 +39,7 @@ export const dictionary:dict=
     
   }
   ,
-  "stepping_beginner":{
+  {
     "filter":["beginner_task"],
 
     "label":"Stepping (beginner). It involves tapping your foot on the coloured circles of the TASK floormat.",
@@ -94,7 +58,7 @@ export const dictionary:dict=
     
   },
   
-  "stepping_advanced":{ 
+  { 
     "filter":["advanced_task"],
     "label":"Stepping (advanced). It involves tapping your foot on the coloured circles of the TASK floormat.",
     "img":"https://www.mq.edu.au/__data/assets/image/0011/715169/Advanced-Stepping.jpg",
@@ -112,7 +76,7 @@ export const dictionary:dict=
   ,
 
 
-  "step_tap_beginner":{ 
+ { 
     "filter":["beginner_task"],
     "label":"Step tap (beginner). It involves tapping your foot on a step whilst balancing with your other leg.",
     "img":"https://www.mq.edu.au/__data/assets/image/0007/715174/Beginner-step-tap.jpg",
@@ -128,7 +92,7 @@ export const dictionary:dict=
     "id":4
 }
     ,
-  "step_tap_advanced":{
+ {
     "filter":["advanced_task"],
 "label":"Step tap (advanced). It involves tapping your foot on a step whilst balancing with your other leg.",
     "img":"https://www.mq.edu.au/__data/assets/image/0010/715168/Advanced-step-tap.jpg",
@@ -145,7 +109,7 @@ export const dictionary:dict=
   }
   ,
 
-  "stand_and_reach_beginner":{
+  {
     "filter":["beginner_task"],
     "label":"Stand and reach (beginner). This involves reaching towards a cup and moving it to different coloured circle on the TASK placemat.",
     "img":"https://www.mq.edu.au/__data/assets/image/0005/715172/Beginner-stand-and-reach.jpg",
@@ -164,7 +128,7 @@ export const dictionary:dict=
   
   
   ,
-  "stand_and_reach_advanced":{
+ {
     "filter":["advanced_task"],
 
     "label":"Stand and reach (advanced). It involves reaching towards a wall in multiple directions.",
@@ -185,7 +149,7 @@ export const dictionary:dict=
   
   
   ,
-  "sit_and_reach_beginner":{
+ {
 
     "filter":["beginner_task"],
     "label":"Sit and reach (beginner). It involves reaching towards a wall in multiple directions.",
@@ -207,7 +171,7 @@ export const dictionary:dict=
   }
   
   ,
-  "sit_and_reach_advanced":{
+  {
     "filter":["advanced_task"],
 
     "label":"Sit and reach (advanced). This involves reaching towards a cup and moving it to different coloured circle on the TASK placemat.",
@@ -229,7 +193,7 @@ export const dictionary:dict=
 
   },
  
-  "The_shoulder_PUSH":{
+  {
     "filter":["push"],
 
     "img":"/PUSH/shoulder_push.png",
@@ -249,7 +213,7 @@ export const dictionary:dict=
   
   
   ,
-  "The_arm_PUSH":{
+ {
     "filter":["push"],
     "img":"/PUSH/arm_push.png",
 
@@ -267,7 +231,7 @@ export const dictionary:dict=
   }
   
   ,
-  "The_elbow_bend_and_straighten":
+
   {
     "filter":["push"],
 
@@ -287,7 +251,7 @@ export const dictionary:dict=
   }
   
   ,
-  "Visualise_hand_movements":
+
   {
     "filter":["push"],
     "img":"/PUSH/vis_hand_movement.png",
@@ -306,7 +270,7 @@ export const dictionary:dict=
   }
   
   ,
-  "The_thumb_slide":{
+  {
     "filter":["push"],
     "img":"/PUSH/thumb_slide.png",
     "bodypart":"arms",
@@ -325,7 +289,7 @@ export const dictionary:dict=
   ,
 
 
-  "Hold_onto_your_head":{
+  {
     "filter":["push"],
 
     "img":"/PUSH/hold_on_to_your_head.png",
@@ -346,7 +310,7 @@ export const dictionary:dict=
   }
   
   ,
-  "The_in_and_out":{
+ {
     "filter":["push"],
 
     "img":"/PUSH/in_and_out.png",
@@ -369,4 +333,4 @@ export const dictionary:dict=
 
 
 
-}
+]
