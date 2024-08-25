@@ -1,12 +1,47 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import Player from '@vimeo/player'
-import { useRef } from 'react'
+import { useRef,useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { convertid2Object } from '../ExerciseGallery/utils/convertId2Object'
+import Preview from '../ExerciseGallery/components/Preview'
+import PreviewCardItem from '../ExerciseGallery/components/PreviewCardItem'
 const Page = () => {
+    const searchParams = useSearchParams()
+    const search = searchParams.get('id')
+    const [videoId,setVideoId]=useState(convertid2Object(search.split("_").map((id)=>{return Number(id)})).map((e)=>{return {...e,completed:false}}))
+    const [count,setCount]=useState(0)
+    useEffect(() => {
+        const player = new Player(iframeRef.current);
+    
+        player.on('play', () => {
+          console.log('Played the video');
+        });
+
+        player.on('ended', () => {
+            //window.alert("sjit")
+            console.log('Video ended');
+            var oridtate=videoId
+            oridtate[count].completed=true
+            
+            
+            setVideoId([...oridtate])
+            //loadvideo(oridtate[count+1].videolink)
+            setCount(count=>count+1)
+            
+           
+          });
+    
+        // Cleanup function
+        return () => {
+          player.destroy();
+        };
+      }, []);
+
     const iframeRef = useRef(null);
-    function loadvideo(){
+    function loadvideo(id){
         var player= new Player(iframeRef.current)  
-        player.loadVideo(285448922).then(function(id) {
+        player.loadVideo(id).then(function(id) {
             // the video successfully loaded
             playvideo()
         }).catch(function(error) {
@@ -55,14 +90,52 @@ const Page = () => {
     });
 
     }
-  return (
-    <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        VideoBooklet
-        <button onClick={loadvideo}>Play</button>
-        <iframe  ref={iframeRef} src="https://player.vimeo.com/video/285448922"  allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Exercise 1 - The Shoulder PUSH"></iframe>
-    
-    </div>
-  )
+    if(count+1>videoId.length){
+        return<div>Congrats</div>
+
+    }
+    else{
+        return (
+            <div className="mx-auto max-w-7xl px-6 lg:px-8">
+         
+               
+                
+             <div className='aspect-video w-3/4 relative '>
+                <iframe   className=" w-full h-full"
+                ref={iframeRef} src={`https://player.vimeo.com/video/${videoId[count].videolink}`}   allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Exercise 1 - The Shoulder PUSH"></iframe>
+                </div>
+                <section>
+                    {JSON.stringify(videoId[count])}
+                    {videoId.map((vid,index)=>{
+                        return <div 
+                        
+        
+                        className={`${index==count?"p-5 bg-rose-800":""}`}
+                        
+                        onClick={()=>{
+                            const selecttionid=vid.id
+                            const indexarray= videoId.map((object)=> object.id)
+                            const indexInArray=indexarray.indexOf(selecttionid)
+                            setCount(indexInArray)
+        
+                        }}>
+                        <PreviewCardItem 
+                        isPreview={false}
+                        img={vid.img} 
+                        header={vid.label} 
+                        currentid={undefined} 
+                        setid={undefined} 
+                        videoid={undefined}
+                        active={vid.completed}
+                        ></PreviewCardItem>
+                        </div>
+                    })}
+                </section>
+            </div>
+          )
+
+    }
+  
 }
 
 export default Page

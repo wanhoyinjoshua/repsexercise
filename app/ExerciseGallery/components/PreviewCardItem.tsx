@@ -1,21 +1,25 @@
 import React from 'react'
-import { EllipsisVerticalIcon,MinusCircleIcon } from '@heroicons/react/20/solid'
+import { EllipsisVerticalIcon,MinusCircleIcon,CheckCircleIcon} from '@heroicons/react/20/solid'
 const PreviewCardItem = (props:{
     img:any,
     header:any,
-    currentid:any,
-    setid:any,
-    videoid:any
+    isPreview:any,
+    currentid?:any,
+    setid?:any,
+    videoid?:any
+    active?:any
 }) => {
   return (
     <li key={"hi"} className="col-span-1 flex rounded-md shadow-sm mt-5 cursor-move">
-             <button
+             {props.isPreview==true?<button
                   type="button"
                   className=" mr-2 inline-flex h-8 w-8 items-center justify-center rounded-full  bg-transparent text-rose-800 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
+
                   <span className="sr-only">Open options</span>
                   <EllipsisVerticalIcon aria-hidden="true" className="h-5 w-5" />
-                </button>
+                </button>:null}
+             
             <div
               className={
                 'bg-rose-800 flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white'
@@ -32,8 +36,7 @@ const PreviewCardItem = (props:{
               </div>
               <div className="flex-shrink-0 pr-2">
               
-
-                <button
+            {props.isPreview? <button
                   type="button"
                   className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent bg-white text-rose-800 hover:text-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2"
                   onClick={()=>{
@@ -45,7 +48,11 @@ const PreviewCardItem = (props:{
                 >
                   <span className="sr-only">Open options</span>
                   <MinusCircleIcon aria-hidden="true" className="h-5 w-5 " />
-                </button>
+                </button>: 
+                <span className={`inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent bg-white ${props.active?"text-green-800":"text-grey-800"} focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2`}>
+                    <CheckCircleIcon aria-hidden="true" className="h-5 w-5 " />
+                    </span>}
+               
               </div>
             </div>
           </li>

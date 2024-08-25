@@ -11,7 +11,7 @@ export const dictionary:any[]=
     "difficulty":"beginner",
     "activity":"sit to stand",
 
-    "videolink":"https://vimeo.com/268313650/14eafa961c",
+    "videolink":"268313650",
 
     "equipment":"a chair",
     "id":0
@@ -31,7 +31,7 @@ export const dictionary:any[]=
     "difficulty":"advanced",
     "activity":"sit to stand",
 
-    "videolink":"https://vimeo.com/268313498/744a2ce4ec",
+    "videolink":"268313498",
     "equipment":"a chair"
     ,
     "id":1
@@ -51,7 +51,7 @@ export const dictionary:any[]=
     "difficulty":"beginner",
     "activity":"walking",
 
-    "videolink":"https://vimeo.com/268313436/866a8a8136",
+    "videolink":"268313436",
     "equipment":""
     ,
     "id":2
@@ -68,7 +68,7 @@ export const dictionary:any[]=
   "impairment":"balance",
   "difficulty":"advanced",
   "activity":"walking",
-  "videolink":"https://vimeo.com/268313376/bbf5243eeb",
+  "videolink":"268313376",
   "equipment":"",
   "id":3
 
@@ -86,7 +86,7 @@ export const dictionary:any[]=
     "impairment":"balance",
     "difficulty":"beginner",
     "activity":"walking",
-    "videolink":"https://vimeo.com/268313312/5ad82d71e8",
+    "videolink":"268313312",
     "equipment":"a small block to step up to"
     ,
     "id":4
@@ -102,7 +102,7 @@ export const dictionary:any[]=
     "impairment":"balance",
     "difficulty":"advanced",
     "activity":"walking",
-    "videolink":"https://vimeo.com/268313260/223bb6a4d0",
+    "videolink":"268313260",
     "equipment":"a small block to step up to"
     ,
     "id":5
@@ -120,7 +120,7 @@ export const dictionary:any[]=
     "impairment":"balance",
     "difficulty":"beginner",
     "activity":"reaching in standing",
-    "videolink":"https://vimeo.com/268313197/351790deae",
+    "videolink":"268313197",
     "equipment":"a wall"
     ,
     "id":6
@@ -141,7 +141,7 @@ export const dictionary:any[]=
     "impairment":"balance",
     "difficulty":"advanced",
     "activity":"reaching in standing",
-    "videolink":"https://vimeo.com/268313127/3fd635e6f4",
+    "videolink":"268313127",
     "equipment":"a wall"
     ,
     "id":7
@@ -162,7 +162,7 @@ export const dictionary:any[]=
     "impairment":"balance",
     "difficulty":"beginner",
     "activity":"reaching in sitting",
-    "videolink":"https://vimeo.com/268313080/31e2376b3f",
+    "videolink":"268313080",
     "equipment":"4-5 cups and a table"
     ,
     "id":8
@@ -184,7 +184,7 @@ export const dictionary:any[]=
     "impairment":"balance",
     "difficulty":"advanced",
     "activity":"reaching in sitting",
-    "videolink":"https://vimeo.com/268313022/31794a0c35",
+    "videolink":"268313022",
     "equipment":"4-5 cups and a table"
     ,
     "id":9
@@ -203,7 +203,7 @@ export const dictionary:any[]=
     "impairment":"strength",
     "difficulty":"beginner",
     "activity":"reaching",
-    "videolink":"https://vimeo.com/285448922",
+    "videolink":"285448922",
     "equipment":"a table , mitten and a cup"
     ,
     "id":10
@@ -222,7 +222,7 @@ export const dictionary:any[]=
     "impairment":"strength",
     "difficulty":"beginner",
     "activity":"reaching",
-    "videolink":"https://vimeo.com/285448955",
+    "videolink":"285448955",
     "equipment":"a table , mitten and a cup"
     ,
     "id":11
@@ -242,7 +242,7 @@ export const dictionary:any[]=
     "impairment":"strength",
     "difficulty":"beginner",
     "activity":"reaching",
-    "videolink":"https://vimeo.com/285448991",
+    "videolink":"285448991",
     "equipment":"a table , mitten and a cup"
     ,
     "id":12
@@ -261,7 +261,7 @@ export const dictionary:any[]=
     "impairment":"strength",
     "difficulty":"beginner",
     "activity":"reaching",
-    "videolink":"https://vimeo.com/285449022",
+    "videolink":"285449022",
     "equipment":"a table"
     ,
     "id":13
@@ -278,7 +278,7 @@ export const dictionary:any[]=
     "impairment":"strength",
     "difficulty":"beginner",
     "activity":"reaching",
-    "videolink":"https://vimeo.com/285449064/6b0905109b",
+    "videolink":"285449064",
     "equipment":"a table"
     ,
     "id":14
@@ -299,7 +299,7 @@ export const dictionary:any[]=
     "impairment":"strength",
     "difficulty":"beginner",
     "activity":"reaching",
-    "videolink":"https://vimeo.com/285449098/3a39dff832",
+    "videolink":"285449098",
     "equipment":"a bed"
     ,
     "id":15
@@ -320,7 +320,7 @@ export const dictionary:any[]=
     "impairment":"strength",
     "difficulty":"advanced",
     "activity":"reaching",
-    "videolink":"https://vimeo.com/120992262/0f3a940b59",
+    "videolink":"120992262",
     "equipment":"a bed"
     ,
     "id":16
