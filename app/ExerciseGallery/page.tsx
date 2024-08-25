@@ -76,7 +76,7 @@ const Page = () => {
     if(isPreview){
         return(
         <div>
-            <Preview setPreview={setPreview}></Preview>
+            <Preview setPreview={setPreview} videoId={videoId}></Preview>
 
         </div>
         )
@@ -90,6 +90,7 @@ const Page = () => {
         setConditons={setConditons}
         setPreview={setPreview}
         count={filtered().length}
+        selected={videoId.length}
 
         ></TopBar>
         </div>

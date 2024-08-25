@@ -1,9 +1,17 @@
 
 import React from 'react'
 import { VideoCameraIcon } from '@heroicons/react/24/outline'
+import SortableList, { SortableItem } from 'react-easy-sort'
+import Videobutton from '@/app/components/ui/VideoButton'
+
 const Preview = (props:{
     setPreview:any
+    videoId:any
 }) => {
+  const [items, setItems] = React.useState(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'])
+  const onSortEnd = (oldIndex: number, newIndex: number) => {
+    setItems([...items])
+  }
   return (
    
         
@@ -33,8 +41,31 @@ const Preview = (props:{
        
 
             </section>
+
+
+            <section>
+
+<SortableList onSortEnd={onSortEnd} className="list" draggedItemClassName="dragged">
+{items.map((item) => (
+<SortableItem key={item}>
+  <div className='item'>
+  <Videobutton link={"/"} content={item}  ></Videobutton>
+
+  </div>
+ 
+</SortableItem>
+))}
+</SortableList>
+
+</section>
          
         </div>
+
+      
+
+
+
+
       </div>
 
  
