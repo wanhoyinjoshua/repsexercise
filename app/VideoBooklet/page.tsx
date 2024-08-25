@@ -27,6 +27,9 @@ const Page = () => {
             
             setVideoId([...oridtate])
             //loadvideo(oridtate[count+1].videolink)
+            if(count+1>videoId.length){
+
+            }
             setCount(count=>count+1)
             
            
@@ -98,14 +101,15 @@ const Page = () => {
         return (
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
          
-               
+               {JSON.stringify(count+1)}
+               {JSON.stringify(videoId.length)}
                 
-             <div className='aspect-video w-3/4 relative '>
+             <div className='aspect-video w-full relative '>
                 <iframe   className=" w-full h-full"
                 ref={iframeRef} src={`https://player.vimeo.com/video/${videoId[count].videolink}`}   allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Exercise 1 - The Shoulder PUSH"></iframe>
                 </div>
                 <section>
-                    {JSON.stringify(videoId[count])}
+                    
                     {videoId.map((vid,index)=>{
                         return <div 
                         
