@@ -113,7 +113,7 @@ const Page = () => {
                     {videoId.map((vid,index)=>{
                         return <div 
                         
-        
+                        key={2}
                         className={`${index==count?"p-5 bg-rose-800":""}`}
                         
                         onClick={()=>{
