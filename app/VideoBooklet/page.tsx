@@ -96,9 +96,9 @@ const Page = () => {
     }
     if(count+1>videoId.length){
         return (
-        <Suspense>
+    
        <div>Congrats</div>
-        </Suspense>
+       
         )
 
     }
