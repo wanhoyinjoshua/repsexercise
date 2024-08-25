@@ -77,7 +77,7 @@ const Page = () => {
     if(isPreview){
         return(
         <div>
-            <Preview setPreview={setPreview} videoId={videoId}></Preview>
+            <Preview setPreview={setPreview} videoId={videoId} setvideoid={setVideoId}></Preview>
 
         </div>
         )
