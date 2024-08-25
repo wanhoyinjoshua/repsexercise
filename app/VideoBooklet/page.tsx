@@ -5,6 +5,7 @@ import { useRef,useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { convertid2Object } from '../ExerciseGallery/utils/convertId2Object'
 import Preview from '../ExerciseGallery/components/Preview'
+import { Suspense } from 'react'
 import PreviewCardItem from '../ExerciseGallery/components/PreviewCardItem'
 const Page = () => {
     const searchParams = useSearchParams()
@@ -94,11 +95,16 @@ const Page = () => {
 
     }
     if(count+1>videoId.length){
-        return<div>Congrats</div>
+        return (
+        <Suspense>
+       <div>Congrats</div>
+        </Suspense>
+        )
 
     }
     else{
         return (
+            <Suspense>
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
          
                {JSON.stringify(count+1)}
@@ -136,6 +142,7 @@ const Page = () => {
                     })}
                 </section>
             </div>
+            </Suspense>
           )
 
     }
