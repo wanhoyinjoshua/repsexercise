@@ -84,7 +84,7 @@ const Page = () => {
 
         return (
             <div>
-                <div className='z-50'>
+                <div className='z-50 sticky top-0'>
         <TopBar 
         searchConditions={searchConditions}
         setConditons={setConditons}

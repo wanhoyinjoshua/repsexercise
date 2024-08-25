@@ -70,7 +70,7 @@ const ref = useDetectClickOutside({ onTriggered: ()=>setOpen(false) });
       
   
               </section>
-              <div>{`(${props.count} videos available)`}</div>
+              <div className='text-black'>{`(${props.count} videos available)`}</div>
            
           </div>
         </div>
