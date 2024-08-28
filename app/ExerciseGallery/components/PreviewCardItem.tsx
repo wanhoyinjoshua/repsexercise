@@ -1,5 +1,5 @@
 import React from 'react'
-import { EllipsisVerticalIcon,MinusCircleIcon,CheckCircleIcon} from '@heroicons/react/20/solid'
+import { EllipsisVerticalIcon,MinusCircleIcon,CheckCircleIcon , CheckIcon} from '@heroicons/react/20/solid'
 const PreviewCardItem = (props:{
     img:any,
     header:any,
@@ -10,7 +10,7 @@ const PreviewCardItem = (props:{
     active?:any
 }) => {
   return (
-    <li key={"hi"} className="col-span-1 flex rounded-md shadow-sm mt-5 cursor-move">
+    <li key={"hi"} className="col-span-1 flex rounded-md shadow-sm mt-5 mb-5 cursor-move">
              {props.isPreview==true?<button
                   type="button"
                   className=" mr-2 inline-flex h-8 w-8 items-center justify-center rounded-full  bg-transparent text-rose-800 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
@@ -49,8 +49,8 @@ const PreviewCardItem = (props:{
                   <span className="sr-only">Open options</span>
                   <MinusCircleIcon aria-hidden="true" className="h-5 w-5 " />
                 </button>: 
-                <span className={`inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent bg-white ${props.active?"text-green-800":"text-grey-800"} focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2`}>
-                    <CheckCircleIcon aria-hidden="true" className="h-5 w-5 " />
+                <span className={`inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent bg-white ${props.active?"bg-green-800 text-white":"text-grey-800"} focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2`}>
+                    <CheckIcon aria-hidden="true" className="h-5 w-5 " />
                     </span>}
                
               </div>
