@@ -45,9 +45,17 @@ const Page = () => {
            
             setVideoId([...cc])
             //it is the same player all along
+         
 
+            if(count<videoId.length-1){
+                setCount(count=>count+1)
+
+            }
+            else{
+                return
+
+            }
             
-            setCount(count=>count+1)
             window.alert(JSON.stringify(cc))
             
             window.alert(`Video ${count} ended`)
@@ -69,6 +77,8 @@ const Page = () => {
     
           // Cleanup function to remove event listeners and destroy player when unmounted
           return () => {
+
+            player.destroy()
 
            
             
@@ -150,14 +160,7 @@ const Page = () => {
     });
 
     }
-    if(count+1>videoId.length){
-        return (
-        <Suspense>
-       <div>Congrats</div>
-        </Suspense>)
-
-    }
-    else{
+   
         return (
 
          
@@ -166,7 +169,7 @@ const Page = () => {
             
 
            
-            {isCompleted()?<div>hihi</div>:<div>hihihihihi</div>}
+            {isCompleted()?<div>Congfrats</div>:<div>hihihihihi</div>}
             
             
              <div className='aspect-video w-full relative '>
@@ -220,6 +223,6 @@ const Page = () => {
 
     }
   
-}
+
 
 export default Page
