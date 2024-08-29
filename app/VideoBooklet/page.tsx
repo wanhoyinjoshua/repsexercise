@@ -14,20 +14,20 @@ const Page = () => {
     const [count,setCount]=useState(0)
     
     const [videoactive,setVideoActive]=useState(0)
-    const iframeRef = useRef(null);
+    const iframeRef = videoId.map(()=>{return useRef(null)});
 
     const [canUpdate,setUpdate]=useState(true)
    
     useEffect(() => {
-        
-        if (iframeRef.current) {
+     
+        if (iframeRef[count].current) {
           // Destroy the existing player instance if it exists
         
 
         
           // Create a new player instance
-          const player = new Player(iframeRef.current);
-    
+          const player = new Player(iframeRef[count].current);
+          
           // Add event listeners or perform actions with the player
           player.on('play', () => {
             console.log('Played the video');
@@ -39,21 +39,28 @@ const Page = () => {
           player.on('ended', (props) => {
             window.alert(JSON.stringify(props))
             console.log(`Video ${count} ended`);
+            var cc= videoId
+            cc[count].completed=true
+            
+           
+            setVideoId([...cc])
             //it is the same player all along
 
-            var cc= videoId
+            
+            setCount(count=>count+1)
+            window.alert(JSON.stringify(cc))
             
             window.alert(`Video ${count} ended`)
-            if(count==videoactive){
-                cc[count].completed=true
-             setVideoId(cc)
+            window.alert(JSON.stringify(player))
+        
+           
 
-            }
+            
              
         
             
-            setCount(count+1)
-            loadvideo(videoId[count+1].videolink)
+           
+            //loadvideo(videoId[count+1].videolink)
           
 
             
@@ -70,7 +77,8 @@ const Page = () => {
           }
          
         }
-      }, [count,videoactive]);
+      }, [count]);
+      
 
     function setComplete(){
         var cc= videoId
@@ -155,15 +163,26 @@ const Page = () => {
          
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
          
-            {JSON.stringify(videoId)}
-            {JSON.stringify(count)}
+            
+
            
             {isCompleted()?<div>hihi</div>:<div>hihihihihi</div>}
             
-                
+            
              <div className='aspect-video w-full relative '>
-                <iframe   className=" w-full h-full"
-                ref={iframeRef} src={`https://player.vimeo.com/video/${videoId[count].videolink}`}   allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Exercise 1 - The Shoulder PUSH"></iframe>
+               
+                {videoId.map((e,index)=>{
+                    if(count==index){
+                        return <iframe   key={index} className=" w-full h-full"
+                        ref={iframeRef[index]} src={`https://player.vimeo.com/video/${videoId[index].videolink}`}   allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Exercise 1 - The Shoulder PUSH"></iframe>
+
+                    }
+                    
+
+                })}
+
+                
+              
                 </div>
                 {count  }
                 <section>
@@ -180,7 +199,7 @@ const Page = () => {
                             const indexInArray=indexarray.indexOf(selecttionid)
                             setCount(indexInArray)
                             //setVideoActive(indexInArray)
-                            loadvideo(videoId[indexInArray].videolink)
+                            //loadvideo(videoId[indexInArray].videolink)
         
                         }}>
                         <PreviewCardItem 
