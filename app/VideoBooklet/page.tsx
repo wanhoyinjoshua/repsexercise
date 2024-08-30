@@ -13,20 +13,20 @@ const Page = () => {
     const [videoId,setVideoId]=useState(convertid2Object(search.split("_").map((id)=>{return Number(id)})).map((e)=>{return {...e,completed:false}}))
     const [count,setCount]=useState(0)
     
-    const [videoactive,setVideoActive]=useState(0)
-    const iframeRef = videoId.map(()=>{return useRef(null)});
 
+    const iframeRefs = useRef([]);
     const [canUpdate,setUpdate]=useState(true)
    
     useEffect(() => {
+        iframeRefs.current = videoId.map((_, i) => iframeRefs.current[i] || React.createRef());
      
-        if (iframeRef[count].current) {
+        if (iframeRefs.current[count].current) {
           // Destroy the existing player instance if it exists
         
 
         
           // Create a new player instance
-          const player = new Player(iframeRef[count].current);
+          const player = new Player(iframeRefs.current[count].current);
           
           // Add event listeners or perform actions with the player
           player.on('play', () => {
@@ -177,7 +177,8 @@ const Page = () => {
                 {videoId.map((e,index)=>{
                     if(count==index){
                         return <iframe   key={index} className=" w-full h-full"
-                        ref={iframeRef[index]} src={`https://player.vimeo.com/video/${videoId[index].videolink}`}   allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Exercise 1 - The Shoulder PUSH"></iframe>
+                        
+                        ref={iframeRefs.current[index]} src={`https://player.vimeo.com/video/${videoId[index].videolink}`}   allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Exercise 1 - The Shoulder PUSH"></iframe>
 
                     }
                     
