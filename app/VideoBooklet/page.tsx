@@ -109,32 +109,7 @@ const Page = () => {
     }
 
     
-    function loadvideo(id){
-        var player= new Player(iframeRef.current)  
-        player.loadVideo(id).then(function(id) {
-            // the video successfully loaded
-            //playvideo()
-        }).catch(function(error) {
-            switch (error.name) {
-                case 'TypeError':
-                    // the id was not a number
-                    break;
-        
-                case 'PasswordError':
-                    // the video is password-protected and the viewer needs to enter the
-                    // password first
-                    break;
-        
-                case 'PrivacyError':
-                    // the video is password-protected or private
-                    break;
-        
-                default:
-                    // some other error occurred
-                    break;
-            }
-        });
-    }
+
 
    
         return (
