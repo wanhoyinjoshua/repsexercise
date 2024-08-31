@@ -11,6 +11,7 @@ import Congragulations from './components/Congragulations'
 import Disclaimer from './components/Disclaimer'
 import { getDuration } from './utils/getDuration'
 import { getEquip } from './utils/getEquip'
+import { getReps } from './utils/getReps'
 const Page = () => {
     const searchParams = useSearchParams()
     const search = searchParams.get('id')
@@ -130,7 +131,7 @@ equip={getEquip(videoId)}
 
            
          {isCompleted()?<Congragulations 
-         stats={"hi"}
+         stats={getReps(videoId)}
          id={search}></Congragulations>:
          
          <section>

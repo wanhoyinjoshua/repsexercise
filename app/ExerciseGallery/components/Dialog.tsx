@@ -1,61 +1,129 @@
 'use client'
 import React from 'react'
 import { useState } from 'react'
-import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
-import { CheckIcon } from '@heroicons/react/24/outline'
-const Dialog1 = () => {
+import { Dialog, DialogBackdrop, DialogPanel, DialogTitle,Button } from '@headlessui/react'
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
+import PhoneNumber from '@/app/components/ui/PhoneNumber'
+import TextInput from '@/app/components/ui/TextInput'
+const ShareBookletDialog = (props:{
+  isOpen:any
+  close:any
+}) => {
     const [open, setOpen] = useState(true)
+    const [sendOptions,setOption]=useState(0)
+    const [phoneNumber,setPhoneNumber]=useState(0)
+    const [email,setEmail]=useState("")
+    //0 is sms 
+    //1 is email
+    const categories = [
+      {
+        name: 'SMS',
+        posts: [
+          {
+            id: 1,
+            title: 'Does drinking coffee make you smarter?',
+            date: '5h ago',
+            commentCount: 5,
+            shareCount: 2,
+          },
+          {
+            id: 2,
+            title: "So you've bought coffee... now what?",
+            date: '2h ago',
+            commentCount: 3,
+            shareCount: 2,
+          },
+        ],
+        component:<PhoneNumber inputValue={phoneNumber} setParentInput={setPhoneNumber}/>
+      },
+      {
+        name: 'Email',
+        posts: [
+          {
+            id: 1,
+            title: 'Does drinking coffee make you smarter?',
+            date: '5h ago',
+            commentCount: 5,
+            shareCount: 2,
+          },
+          {
+            id: 2,
+            title: "Email",
+            date: '2h ago',
+            commentCount: 3,
+            shareCount: 2,
+          },
+        ],
+        component:<TextInput inputValue={email} setParentInput={setEmail}/>
+      }
+    
+    ]
   return (
-    <Dialog open={open} onClose={setOpen} className="relative z-10">
-    <DialogBackdrop
-      transition
-      className="fixed  inset-0 bg-gray-500 bg-opacity-75 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
-    />
-
-    <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-      <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-        <DialogPanel
-          transition
-          className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-lg sm:p-6 data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
-        >
-          <div>
-            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
-              <CheckIcon aria-hidden="true" className="h-6 w-6 text-green-600" />
-            </div>
-            <div className="mt-3 text-center sm:mt-5">
-              <DialogTitle as="h3" className="text-base font-semibold leading-6 text-gray-900">
-                Payment successful
+    <Dialog open={props.isOpen} as="div" className="relative z-50 focus:outline-none" onClose={close}>
+      <DialogBackdrop className="fixed inset-0 bg-black/75" />
+        <div className="  fixed inset-0 z-10 w-screen overflow-y-auto">
+          <div className="flex  min-h-full items-center justify-center p-4">
+            <DialogPanel
+              transition
+              className="w-full opacity-100 max-w-md rounded-xl text-black p-6 bg-white duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0"
+            >
+              <DialogTitle as="h3" className="text-base/7 font-medium text-black">
+                Share your Exercise Video Booklet
               </DialogTitle>
-              <div className="mt-2">
-                <p className="text-sm text-gray-500">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius aliquam laudantium explicabo pariatur
-                  iste dolorem animi vitae error totam. At sapiente aliquam accusamus facere veritatis.
-                </p>
+              <p className="mt-2 text-sm/6 text-black/50">
+              <TabGroup
+              onChange={(index) => {
+                setOption(index)
+                console.log('Changed selected tab to:', index)
+              }}
+              >
+          <TabList className="flex gap-4">
+            {categories.map(({ name }) => (
+              <Tab
+                key={name}
+                className="rounded-full py-1 px-3 text-sm/6 font-semibold  focus:outline-none data-[selected]:bg-rose-800/10 data-[hover]:bg-white/5 data-[selected]:data-[hover]:bg-rose/10 data-[focus]:outline-1 data-[focus]:outline-rose-800"
+              >
+                {name}
+              </Tab>
+            ))}
+          </TabList>
+          <TabPanels className="mt-3">
+            {categories.map(({ name, posts,component }) => (
+              <TabPanel key={name} className="rounded-xl bg-white/5 p-3">
+                <ul>
+                {component}
+                  {posts.map((post) => (
+                    <div key={post.id} className="relative rounded-md p-3 text-sm/6 transition hover:bg-white/5">
+                     <section>
+                      
+                     </section>
+                    </div>
+                  ))}
+                </ul>
+              </TabPanel>
+            ))}
+          </TabPanels>
+        </TabGroup>
+              </p>
+              <div className="mt-4 flex justify-between">
+                <Button
+                  className="inline-flex items-center gap-2 rounded-md bg-gray-700 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[focus]:outline-1 data-[focus]:outline-white data-[open]:bg-gray-700"
+                  onClick={props.close}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  className="inline-flex items-center gap-2 rounded-md bg-gray-700 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[focus]:outline-1 data-[focus]:outline-white data-[open]:bg-gray-700"
+                  onClick={props.close}
+                >
+                  Share via {sendOptions==0?"SMS":"Email"}
+                </Button>
               </div>
-            </div>
+            </DialogPanel>
           </div>
-          <div className="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
-            <button
-              type="button"
-              onClick={() => setOpen(false)}
-              className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:col-start-2"
-            >
-              Deactivate
-            </button>
-            <button
-              type="button"
-              data-autofocus
-              onClick={() => setOpen(false)}
-              className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:col-start-1 sm:mt-0"
-            >
-              Cancel
-            </button>
-          </div>
-        </DialogPanel>
-      </div>
-    </div>
-  </Dialog>
+        </div>
+      </Dialog>
   )
 }
 
-export default Dialog1
+export default ShareBookletDialog

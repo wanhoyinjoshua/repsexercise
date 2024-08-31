@@ -6,6 +6,7 @@ const Congragulations = (props:{
 }) => {
   return (
     <div className='h-screen'>Congragulations
+    <div>You have completed {props.stats}</div>
     
     <a href={`/VideoBooklet?id=${props.id}`}>Return</a>
     </div>
