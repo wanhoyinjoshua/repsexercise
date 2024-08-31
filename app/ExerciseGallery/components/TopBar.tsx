@@ -126,7 +126,7 @@ const ref = useDetectClickOutside({ onTriggered: ()=>setOpen(false) });
             className="group relative -mx-3 flex gap-6 rounded-lg p-3 text-sm leading-6 hover:bg-gray-50 sm:flex-col sm:p-6"
           >
             <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-              <item.icon aria-hidden="true" className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" />
+              <item.icon aria-hidden="true" className="h-6 w-6 text-gray-600 group-hover:text-rose-600" />
               
             </div>
          
@@ -138,7 +138,7 @@ const ref = useDetectClickOutside({ onTriggered: ()=>setOpen(false) });
                    <Switch
       checked={props.searchConditions[item.booleanval]}
       
-      className="group relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 data-[checked]:bg-indigo-600"
+      className="group relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 data-[checked]:bg-green-600"
     >
       <span
         aria-hidden="true"
