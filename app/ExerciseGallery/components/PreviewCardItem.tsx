@@ -18,7 +18,26 @@ const PreviewCardItem = (props:{
 
                   <span className="sr-only">Open options</span>
                   <EllipsisVerticalIcon aria-hidden="true" className="h-5 w-5" />
-                </button>:null}
+                </button>: <div className="flex-shrink-0 pr-2">
+              
+              {props.isPreview? <button
+                    type="button"
+                    className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent  text-rose-800 hover:text-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2"
+                    onClick={()=>{
+                    
+                      var newid=props.videoid.filter((id)=>{return id!=props.currentid})
+                     
+                      props.setid([...newid])
+                    }}
+                  >
+                    <span className="sr-only">Open options</span>
+                    <MinusCircleIcon aria-hidden="true" className="h-5 w-5 " />
+                  </button>: 
+                  <span className={`inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent  ${props.active?"bg-green-700 text-white":"bg-white text-grey-800"} focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2`}>
+                      <CheckIcon aria-hidden="true" className="h-5 w-5 " />
+                      </span>}
+                 
+                </div>}
              
             <div
               className={
@@ -34,26 +53,7 @@ const PreviewCardItem = (props:{
                 </div>
                
               </div>
-              <div className="flex-shrink-0 pr-2">
-              
-            {props.isPreview? <button
-                  type="button"
-                  className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent bg-white text-rose-800 hover:text-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2"
-                  onClick={()=>{
-                   window.alert(JSON.stringify(props.videoid))
-                    var newid=props.videoid.filter((id)=>{return id!=props.currentid})
-                    window.alert(JSON.stringify(newid))
-                    props.setid([...newid])
-                  }}
-                >
-                  <span className="sr-only">Open options</span>
-                  <MinusCircleIcon aria-hidden="true" className="h-5 w-5 " />
-                </button>: 
-                <span className={`inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent bg-white ${props.active?"bg-green-800 text-white":"text-grey-800"} focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2`}>
-                    <CheckIcon aria-hidden="true" className="h-5 w-5 " />
-                    </span>}
-               
-              </div>
+             
             </div>
           </li>
   )
