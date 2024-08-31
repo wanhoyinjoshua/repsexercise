@@ -40,7 +40,7 @@ equip:any
                         <div className='flex '>
                         <ul className='list-disc'>
                         {props.equip.map((e)=>{
-                            return <li className='text-left'>{e}</li>
+                            return <li key={e} className='text-left'>{e}</li>
                         })}
 
                         </ul>
