@@ -8,6 +8,7 @@ import Dialog1 from './Dialog'
 import { count } from 'console'
 import { useState } from 'react'
 import { useDetectClickOutside } from 'react-detect-click-outside';
+import { action_btn_accent, action_btn_color } from '@/constants/ui_style_tailwind'
 
 const callsToAction = [
   { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
@@ -62,7 +63,7 @@ const ref = useDetectClickOutside({ onTriggered: ()=>setOpen(false) });
             <button
             onClick={()=>{props.setPreview(true)}}
           type="button"
-          className="inline-flex items-center gap-x-2 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className={`inline-flex items-center gap-x-2 rounded-md bg-${action_btn_color} px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-${action_btn_accent} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-${action_btn_accent}`}
         >
           <VideoCameraIcon aria-hidden="true" className="-ml-0.5 h-5 w-5" />
           Preview {`(${props.selected})`}

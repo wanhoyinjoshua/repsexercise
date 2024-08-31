@@ -40,10 +40,10 @@ const Page = () => {
         var isbeginner=searchConditions.beginner_task&&object.filter.includes("beginner_task")
         var isadvanced=searchConditions.advanced_task&&object.filter.includes("advanced_task")
         var isPush=searchConditions.push&&object.filter.includes("push")
-        
+        var isSelected=videoId.includes(object.id)
         
        
-        if(isPush||isadvanced||isbeginner){
+        if(isPush||isadvanced||isbeginner||isSelected){
             
             return true
 
@@ -103,12 +103,12 @@ const Page = () => {
         
                 {
                     filtered().map((object)=>{
-                        return <div key={"hi"} onClick={()=>toggleVideo(object)} className={`${videoId.includes(object.id)?"bg-red-100":""} relative w-96 aspect-video m-10`}>
+                        return <div key={"hi"} onClick={()=>toggleVideo(object)} className={`${videoId.includes(object.id)?"bg-red-100 border-stone-700 border-4":""}  relative w-96 aspect-video m-10 p-5`}>
                             <div className='absolute rounded-full top-0 right-0 w-1/4 aspect-square bg-slate-50  border-4 border-red-700'>
         
-                            <div className={`${videoId.includes(object.id)?"opacity-100":"opacity-0"}w-full h-full  text-green hover:opacity-100`}>
+                            <div className={`${videoId.includes(object.id)?"opacity-100":"opacity-0"} w-full h-full  text-green hover:opacity-100`}>
                             {videoId.includes(object.id)&&
-                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-3">
+                             <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-full h-full">
                              <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                            </svg>
                             }
