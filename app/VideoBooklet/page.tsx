@@ -9,11 +9,14 @@ import { Suspense } from 'react'
 import PreviewCardItem from '../ExerciseGallery/components/PreviewCardItem'
 import Congragulations from './components/Congragulations'
 import Disclaimer from './components/Disclaimer'
+import { getDuration } from './utils/getDuration'
+import { getEquip } from './utils/getEquip'
 const Page = () => {
     const searchParams = useSearchParams()
     const search = searchParams.get('id')
     const [videoId,setVideoId]=useState(convertid2Object(search.split("_").map((id)=>{return Number(id)})).map((e)=>{return {...e,completed:false}}))
     const [count,setCount]=useState(-1)
+    const [ack,setAcknowledge]=useState(false)
     const [disclaimer,setDisclaimer]=useState(false)
     
 
@@ -112,8 +115,12 @@ const Page = () => {
         return (
             <>
 
-{disclaimer==false?<Disclaimer setDisclaimer={setDisclaimer}
+{disclaimer==false?<Disclaimer 
+setAcknowledge={setAcknowledge}
+setDisclaimer={setDisclaimer}
 setCount={setCount}
+duration={getDuration(videoId)}
+equip={getEquip(videoId)}
 ></Disclaimer>:
 
 

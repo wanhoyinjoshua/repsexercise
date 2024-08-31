@@ -1,17 +1,23 @@
+import { Equipment } from "./enums"
 
 export const dictionary:any[]=
 [
   {
     "filter":["beginner_task"],
     "label":"Sit to stand (beginner). It involves standing up from a chair and sitting down again.",
-    "img":"https://www.mq.edu.au/__data/assets/image/0004/715171/Beginner-sit-to-stand.jpg",
+    "img":"/TASK/STS_a.png",
+    "reps":20,
+    "duration":319,
     "bodypart":"legs",
     "impairment":"strength",
     "aim":"improve ability to stand up",
     "difficulty":"beginner",
     "activity":"sit to stand",
+    
+    
 
     "videolink":"268313650",
+    "equip":[{"label":Equipment.Chair, "link":""}],
 
     "equipment":"a chair",
     "id":0
@@ -23,17 +29,19 @@ export const dictionary:any[]=
     "filter":["advanced_task"],
 
     "label":"Sit to stand (advanced). It involves standing up from a chair and sitting down again.",
-    "img":"https://www.mq.edu.au/__data/assets/image/0008/715166/Advanced-sit-to-stand.jpg",
-
+    "img":"/TASK/STS_b.png",
+    "reps":44,
     "bodypart":"legs",
     "impairment":"strength",
     "aim":"improve ability to stand up",
     "difficulty":"advanced",
     "activity":"sit to stand",
+    "equip":[{"label":Equipment.Chair, "link":""}],
 
     "videolink":"268313498",
-    "equipment":"a chair"
-    ,
+    "equipment":"a chair",
+    "duration":318,
+    
     "id":1
 
     
@@ -43,15 +51,18 @@ export const dictionary:any[]=
     "filter":["beginner_task"],
 
     "label":"Stepping (beginner). It involves tapping your foot on the coloured circles of the TASK floormat.",
-    "img":"https://www.mq.edu.au/__data/assets/image/0006/715173/Beginner-stepping.jpg",
-
+    "img":"/TASK/stepping_a.png",
+    "reps":94,
     "bodypart":"legs",
     "aim":"This exercise aims to improve your single leg balance and will improve balance and walking",
     "impairment":"balance",
     "difficulty":"beginner",
     "activity":"walking",
+    "equip":[{"label":Equipment.Chair, "link":""},{"label":Equipment.TaskMat, "link":""}],
 
     "videolink":"268313436",
+    "duration":312,
+    
     "equipment":""
     ,
     "id":2
@@ -61,14 +72,17 @@ export const dictionary:any[]=
   { 
     "filter":["advanced_task"],
     "label":"Stepping (advanced). It involves tapping your foot on the coloured circles of the TASK floormat.",
-    "img":"https://www.mq.edu.au/__data/assets/image/0011/715169/Advanced-Stepping.jpg",
-
+    "img":"/TASK/stepping_b.png",
+    "reps":105,
   "bodypart":"legs",
   "aim":"This exercise aims to improve your single leg balance and will improve balance and walking",
   "impairment":"balance",
   "difficulty":"advanced",
   "activity":"walking",
   "videolink":"268313376",
+  "equip":[{"label":Equipment.Chair, "link":""},{"label":Equipment.TaskMat, "link":""}],
+
+  "duration":323,
   "equipment":"",
   "id":3
 
@@ -79,14 +93,17 @@ export const dictionary:any[]=
  { 
     "filter":["beginner_task"],
     "label":"Step tap (beginner). It involves tapping your foot on a step whilst balancing with your other leg.",
-    "img":"https://www.mq.edu.au/__data/assets/image/0007/715174/Beginner-step-tap.jpg",
-
+    "img":"/TASK/step_tap_a.png",
+    "reps":99,
     "bodypart":"legs",
     "aim":"improve balance and walking",
     "impairment":"balance",
     "difficulty":"beginner",
     "activity":"walking",
     "videolink":"268313312",
+    "equip":[{"label":Equipment.Chair, "link":""},{"label":Equipment.TaskMat, "link":""},{"label":Equipment.StepBlock, "link":""}],
+
+    "duration":318,
     "equipment":"a small block to step up to"
     ,
     "id":4
@@ -95,14 +112,17 @@ export const dictionary:any[]=
  {
     "filter":["advanced_task"],
 "label":"Step tap (advanced). It involves tapping your foot on a step whilst balancing with your other leg.",
-    "img":"https://www.mq.edu.au/__data/assets/image/0010/715168/Advanced-step-tap.jpg",
-
+"img":"/TASK/step_tab_b.png",
+"reps":107,
     "bodypart":"legs",
     "aim":"improve balance and walking",
     "impairment":"balance",
     "difficulty":"advanced",
     "activity":"walking",
     "videolink":"268313260",
+    "duration":325,
+    "equip":[{"label":Equipment.Chair, "link":""},{"label":Equipment.TaskMat, "link":""},{"label":Equipment.StepBlock, "link":""}],
+
     "equipment":"a small block to step up to"
     ,
     "id":5
@@ -112,8 +132,8 @@ export const dictionary:any[]=
   {
     "filter":["beginner_task"],
     "label":"Stand and reach (beginner). This involves reaching towards a cup and moving it to different coloured circle on the TASK placemat.",
-    "img":"https://www.mq.edu.au/__data/assets/image/0005/715172/Beginner-stand-and-reach.jpg",
-
+    "img":"/TASK/stand_reach_a.png",
+"reps":55,
 
     "bodypart":"legs/arm",
     "aim":"improve ability to reach for objects while standing",
@@ -121,8 +141,11 @@ export const dictionary:any[]=
     "difficulty":"beginner",
     "activity":"reaching in standing",
     "videolink":"268313197",
-    "equipment":"a wall"
-    ,
+    "equipment":"a wall",
+    "equip":[{"label":Equipment.Chair, "link":""},,{"label":Equipment.Wall, "link":""}],
+
+    "duration":344,
+    
     "id":6
   }
   
@@ -132,8 +155,8 @@ export const dictionary:any[]=
     "filter":["advanced_task"],
 
     "label":"Stand and reach (advanced). It involves reaching towards a wall in multiple directions.",
-    "img":"https://www.mq.edu.au/__data/assets/image/0009/715167/Advanced-stand-and-reach.jpg",
-
+    "img":"/TASK/stand_reach_b.png",
+    "reps":67,
 
 
     "bodypart":"legs/arm",
@@ -141,7 +164,10 @@ export const dictionary:any[]=
     "impairment":"balance",
     "difficulty":"advanced",
     "activity":"reaching in standing",
+    "equip":[{"label":Equipment.Chair, "link":""},,{"label":Equipment.Wall, "link":""}],
+
     "videolink":"268313127",
+    "duration":341,
     "equipment":"a wall"
     ,
     "id":7
@@ -153,8 +179,8 @@ export const dictionary:any[]=
 
     "filter":["beginner_task"],
     "label":"Sit and reach (beginner). It involves reaching towards a wall in multiple directions.",
-    "img":"https://www.mq.edu.au/__data/assets/image/0003/715170/Beginner-sit-and-reach.jpg",
-
+    "img":"/TASK/sit_reach_a.png",
+    "reps":55,
 
 
     "bodypart":"legs",
@@ -163,6 +189,9 @@ export const dictionary:any[]=
     "difficulty":"beginner",
     "activity":"reaching in sitting",
     "videolink":"268313080",
+    "duration":321,
+    "equip":[{"label":Equipment.Chair, "link":""},,{"label":Equipment.Table, "link":""}],
+
     "equipment":"4-5 cups and a table"
     ,
     "id":8
@@ -175,8 +204,8 @@ export const dictionary:any[]=
     "filter":["advanced_task"],
 
     "label":"Sit and reach (advanced). This involves reaching towards a cup and moving it to different coloured circle on the TASK placemat.",
-    "img":"https://www.mq.edu.au/__data/assets/image/0003/715170/Beginner-sit-and-reach.jpg",
-
+    "img":"/TASK/sit_reach_b.png",
+    "reps":70,
 
 
     "bodypart":"legs",
@@ -185,6 +214,9 @@ export const dictionary:any[]=
     "difficulty":"advanced",
     "activity":"reaching in sitting",
     "videolink":"268313022",
+    "duration":365,
+    "equip":[{"label":Equipment.Chair, "link":""},,{"label":Equipment.Table, "link":""}],
+
     "equipment":"4-5 cups and a table"
     ,
     "id":9
@@ -195,7 +227,8 @@ export const dictionary:any[]=
  
   {
     "filter":["push"],
-
+    "label":"Shoulder Push. To Improve your ability to move forward at the shoulder.",
+    "reps":100,
     "img":"/PUSH/shoulder_push.png",
 
     "bodypart":"arms",
@@ -204,8 +237,11 @@ export const dictionary:any[]=
     "difficulty":"beginner",
     "activity":"reaching",
     "videolink":"285448922",
-    "equipment":"a table , mitten and a cup"
-    ,
+    "duration":369,
+    "equipment":"a table , mitten and a cup",
+    "equip":[{"label":Equipment.ArmTable, "link":""},{"label":Equipment.Mitten, "link":""},{"label":Equipment.Chair, "link":""}],
+
+    
     "id":10
 
 
@@ -216,6 +252,8 @@ export const dictionary:any[]=
  {
     "filter":["push"],
     "img":"/PUSH/arm_push.png",
+    "label":"Arm Push. To Improve your ability to move your arm forwards.",
+    "reps":50,
 
     "bodypart":"arms",
     "aim":"improve ability to move your arm forward",
@@ -223,6 +261,9 @@ export const dictionary:any[]=
     "difficulty":"beginner",
     "activity":"reaching",
     "videolink":"285448955",
+    "duration":242,
+    "equip":[{"label":Equipment.ArmTable, "link":""},{"label":Equipment.Mitten, "link":""},{"label":Equipment.Chair, "link":""}],
+
     "equipment":"a table , mitten and a cup"
     ,
     "id":11
@@ -234,6 +275,8 @@ export const dictionary:any[]=
 
   {
     "filter":["push"],
+    "label":"Elbow Straighten and out. To improve your ability to bend and straighten your elbow.",
+    "reps":50,
 
     "img":"/PUSH/elbow_straighten.png",
 
@@ -243,6 +286,9 @@ export const dictionary:any[]=
     "difficulty":"beginner",
     "activity":"reaching",
     "videolink":"285448991",
+    "duration":200,
+    "equip":[{"label":Equipment.ArmTable, "link":""},{"label":Equipment.Chair, "link":""}],
+
     "equipment":"a table , mitten and a cup"
     ,
     "id":12
@@ -255,6 +301,9 @@ export const dictionary:any[]=
   {
     "filter":["push"],
     "img":"/PUSH/vis_hand_movement.png",
+    "label":"Visualising hand movement. To improve your ability to move your finger.",
+    "reps":50,
+
 
     "bodypart":"arms",
     "aim":"improve ability to move your fingers",
@@ -262,7 +311,10 @@ export const dictionary:any[]=
     "difficulty":"beginner",
     "activity":"reaching",
     "videolink":"285449022",
-    "equipment":"a table"
+    "equipment":"a table",
+    "equip":[{"label":Equipment.Table, "link":""},{"label":Equipment.Chair, "link":""}],
+
+    "duration":313
     ,
     "id":13
 
@@ -273,14 +325,19 @@ export const dictionary:any[]=
   {
     "filter":["push"],
     "img":"/PUSH/thumb_slide.png",
+    "label":"Thumb Slide. To improve your ability to move your thumb.",
+    "reps":50,
     "bodypart":"arms",
     "aim":"improve ability to move your fingers",
     "impairment":"strength",
     "difficulty":"beginner",
     "activity":"reaching",
     "videolink":"285449064",
-    "equipment":"a table"
-    ,
+    "equipment":"a table",
+    "duration":180,
+    "equip":[{"label":Equipment.ArmTable, "link":""},{"label":Equipment.Chair, "link":""}],
+
+    
     "id":14
 
 
@@ -293,6 +350,8 @@ export const dictionary:any[]=
     "filter":["push"],
 
     "img":"/PUSH/hold_on_to_your_head.png",
+    "label":"Hold on to your head. To improve your ability to move your shoulder.",
+    "reps":20,
     
     "bodypart":"arms",
     "aim":"improve ability to move forward at the shoulder",
@@ -300,7 +359,10 @@ export const dictionary:any[]=
     "difficulty":"beginner",
     "activity":"reaching",
     "videolink":"285449098",
+    "equip":[{"label":Equipment.Bed, "link":""}],
+
     "equipment":"a bed"
+    , "duration":551
     ,
     "id":15
 
@@ -314,6 +376,9 @@ export const dictionary:any[]=
     "filter":["push"],
 
     "img":"/PUSH/in_and_out.png",
+    "label":"In and out. To improve your ability to move your shoulder."
+    ,
+    "reps":50,
 
     "bodypart":"arms",
     "aim":"improve ability to move forward at the shoulder",
@@ -321,7 +386,9 @@ export const dictionary:any[]=
     "difficulty":"advanced",
     "activity":"reaching",
     "videolink":"120992262",
-    "equipment":"a bed"
+    "equipment":"a bed",
+    "equip":[{"label":Equipment.Bed, "link":""}],
+     "duration":250
     ,
     "id":16
 
