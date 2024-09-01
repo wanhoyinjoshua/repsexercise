@@ -103,7 +103,7 @@ const Page = () => {
         
                 {
                     filtered().map((object)=>{
-                        return <div key={"hi"} onClick={()=>toggleVideo(object)} className={`${videoId.includes(object.id)?"bg-red-100 border-stone-700 border-4":""}  relative w-96 aspect-video m-10 p-5`}>
+                        return <div key={"hi"} onClick={()=>toggleVideo(object)} className={`${videoId.includes(object.id)?"bg-red-100 border-stone-700 border-4":""}  relative w-96 aspect-video m-10 p-5 cursor-pointer`}>
                             <div className='absolute rounded-full top-0 right-0 w-1/4 aspect-square bg-slate-50  border-4 border-red-700'>
         
                             <div className={`${videoId.includes(object.id)?"opacity-100":"opacity-0"} w-full h-full  text-green hover:opacity-100`}>

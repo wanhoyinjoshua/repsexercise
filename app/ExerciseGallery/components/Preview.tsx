@@ -51,7 +51,7 @@ const Preview = (props:{
         <VideoCameraIcon aria-hidden="true" className="-ml-0.5 h-5 w-5" />
         Share
       </button>
-      <ShareBookletDialog isOpen={isOpen} close={close}></ShareBookletDialog>
+      <ShareBookletDialog isOpen={isOpen} close={close} program_id={props.videoId.join("_")}></ShareBookletDialog>
       
       <a
        href={`/VideoBooklet?id=${props.videoId.join("_")}`}

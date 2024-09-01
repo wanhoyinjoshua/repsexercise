@@ -3,6 +3,7 @@ interface button {
     link: any
     content: any;
     blank?:boolean;
+    light?:boolean
 
 }
 export default function Videobutton(props:button) {
@@ -14,7 +15,7 @@ export default function Videobutton(props:button) {
             
              <Link href={props.link} target={props.blank?"_blank":""}>
 <button 
- className="mb-2 mt-1 py-4 px-6  bg-rose-800 hover:bg-rose-500 focus:ring-rose-500 focus:ring-offset-rose-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 " >
+ className={`mb-2 mt-1 py-4 px-6  ${props.light==true?"bg-white text-black hover:bg-grey ":"bg-rose-800 text-white hover:bg-rose-500 "}  focus:ring-rose-500 focus:ring-offset-rose-200  w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2`} >
    { props.content}
 </button>
 </Link>

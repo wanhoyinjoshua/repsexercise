@@ -5,14 +5,19 @@ import { Dialog, DialogBackdrop, DialogPanel, DialogTitle,Button } from '@headle
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
 import PhoneNumber from '@/app/components/ui/PhoneNumber'
 import TextInput from '@/app/components/ui/TextInput'
+import { run_sendEmail } from '@/app/services/email'
+import AlertMsg from '@/app/components/ui/SucessMsg'
 const ShareBookletDialog = (props:{
   isOpen:any
   close:any
+  program_id:any
 }) => {
     const [open, setOpen] = useState(true)
-    const [sendOptions,setOption]=useState(0)
+    const [sendOptions,setOption]=useState(1)
     const [phoneNumber,setPhoneNumber]=useState(0)
     const [email,setEmail]=useState("")
+    const [sending,setSending]=useState(false)
+    const [sendSuccess,setSucess]=useState(null)
     //0 is sms 
     //1 is email
     const categories = [
@@ -68,10 +73,11 @@ const ShareBookletDialog = (props:{
               className="w-full opacity-100 max-w-md rounded-xl text-black p-6 bg-white duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0"
             >
               <DialogTitle as="h3" className="text-base/7 font-medium text-black">
-                Share your Exercise Video Booklet
+                Share your Exercise Video Booklet 
               </DialogTitle>
               <p className="mt-2 text-sm/6 text-black/50">
               <TabGroup
+              defaultIndex={1}
               onChange={(index) => {
                 setOption(index)
                 console.log('Changed selected tab to:', index)
@@ -88,6 +94,7 @@ const ShareBookletDialog = (props:{
             ))}
           </TabList>
           <TabPanels className="mt-3">
+            {sending==true?<div>sending</div>:<div></div>}
             {categories.map(({ name, posts,component }) => (
               <TabPanel key={name} className="rounded-xl bg-white/5 p-3">
                 <ul>
@@ -102,19 +109,45 @@ const ShareBookletDialog = (props:{
                 </ul>
               </TabPanel>
             ))}
+            {sendSuccess==true?<AlertMsg status={true}></AlertMsg>:sendSuccess==false?<AlertMsg status={false}></AlertMsg>:null}
           </TabPanels>
         </TabGroup>
               </p>
               <div className="mt-4 flex justify-between">
                 <Button
                   className="inline-flex items-center gap-2 rounded-md bg-gray-700 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[focus]:outline-1 data-[focus]:outline-white data-[open]:bg-gray-700"
-                  onClick={props.close}
+                  onClick={()=>{
+                    setSucess(null)
+                    props.close()
+
+                  }}
                 >
                   Cancel
                 </Button>
                 <Button
-                  className="inline-flex items-center gap-2 rounded-md bg-gray-700 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[focus]:outline-1 data-[focus]:outline-white data-[open]:bg-gray-700"
-                  onClick={props.close}
+                  className="inline-flex items-center gap-2 rounded-md bg-rose-800 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-rose-600 data-[focus]:outline-1 data-[focus]:outline-white data-[open]:bg-gray-700"
+                  onClick={async ()=>{
+                    console.log("hi")
+                    if(sendOptions==1){
+                      setSending(true)
+                      const jason= await  run_sendEmail(props.program_id,email,"hi")
+                      if(jason instanceof Error){
+                        setSending(false)
+                        setSucess(false)
+
+                      }else{
+                        setSending(false)
+                        setSucess(true)
+
+                      }
+
+                    }else{
+                      window.alert("SMS is not supported yet")
+
+                    }
+                    
+
+                  }}
                 >
                   Share via {sendOptions==0?"SMS":"Email"}
                 </Button>
