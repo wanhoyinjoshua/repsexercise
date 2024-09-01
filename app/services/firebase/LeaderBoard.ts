@@ -1,6 +1,6 @@
 // Import Firebase libraries
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs, query, orderBy, limit, startAfter, doc, getDoc } from 'firebase/firestore';
+import { getFirestore, addDoc,collection, getDocs, query, orderBy, limit, startAfter, doc, getDoc } from 'firebase/firestore';
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -23,7 +23,7 @@ export async function fetchUsers(startAfterDoc = null) {
   if (startAfterDoc) {
     q = query(usersRef, orderBy('score', 'desc'), startAfter(doc(db, 'users', startAfterDoc.id)), limit(10)); // Fetch 10 users at a time
   } else {
-    q = query(usersRef, orderBy('score', 'desc'), limit(20)); // Fetch initial 10 users
+    q = query(usersRef, orderBy('score', 'desc'), limit(1000)); // Fetch initial 10 users
   }
 
   const querySnapshot = await getDocs(q);
@@ -45,6 +45,36 @@ export async function fetchUsers(startAfterDoc = null) {
   } else {
     // Disable "Load More" button or indicate that there are no more users
   }
+}
+
+
+export async function addStat(username,score){
+    const usersCollectionRef = collection(db, 'users'); // Replace 'users' with your collection name
+    const newUserData = {
+        username: username,
+        score: score,
+        date: `${new Date().getDate()}/${new Date().getMonth()}/${new Date().getFullYear()}`
+        // Add other fields as needed
+      };
+
+      try {
+        const docRef = await addDoc(usersCollectionRef, newUserData);
+        console.log('Document written with ID: ', docRef.id);
+        return docRef; // Returns the document reference on success
+      } catch (error) {
+        console.error('Error adding document: ', error);
+        return error; // Returns the error object on failure
+      }
+    addDoc(usersCollectionRef, newUserData)
+  .then((docRef) => {
+    console.log('Document written with ID: ', docRef.id);
+    return docRef
+  })
+  .catch((error:Error) => {
+    console.error('Error adding document: ', error);
+    return error
+  });
+
 }
 
 // Initial fetch

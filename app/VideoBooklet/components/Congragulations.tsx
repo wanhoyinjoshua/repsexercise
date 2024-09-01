@@ -1,13 +1,19 @@
-
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import { quotes } from '@/constants/quotes'
 import Videobutton from '@/app/components/ui/VideoButton'
+import TextInput from '@/app/components/ui/TextInput'
+import { addStat } from '@/app/services/firebase/LeaderBoard'
+import { useRouter } from 'next/navigation'
 const Congragulations = (props:{
     id:any
     stats:any
 }) => {
 
   const quote= quotes[Math.round(Math.random()*quotes.length)]
+  const [quoted,setQuote]=useState(quote)
+  const [username,setUsername]=useState("")
+  const router = useRouter()
 
   
 
@@ -47,9 +53,37 @@ const Congragulations = (props:{
                 </p>
               </blockquote>
               <figcaption className="mt-8 text-base">
-                <div className="font-semibold text-white">{quote.quote}</div>
-                <div className="mt-1 text-gray-400">{quote.author}</div>
-                <Videobutton  link={`/VideoBooklet?id=${props.id}`} content={"Share to Hall of Champion"}></Videobutton>
+                <div className="font-semibold text-white">{quoted.quote}</div>
+                <div className="mt-1 text-gray-400">{quoted.author}</div>
+                <div className='p-5 bg-white w-full'>
+                  <div className='text-black'>Name to display on Hall of Champion! *This is optional</div>
+                <input
+        id="email"
+        name="email"
+        type="email"
+        value={username}
+        onChange={(e)=>{setUsername(e.target.value)}}
+        placeholder="Captain America"
+        className="block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+      />
+
+                </div>
+               
+                <button 
+                onClick={async ()=>{
+                   const result= await addStat(username==""?"Anonymous":username, props.stats)
+                   if(result instanceof Error){
+                    window.alert("error when adding records, try again later!")
+
+                   }else{
+                    router.push('/ChampionsBoard')
+                   }
+                  
+
+                }}
+ className={`mb-2 mt-1 py-4 px-6  bg-rose-800 text-white hover:bg-rose-500   focus:ring-rose-500 focus:ring-offset-rose-200  w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2`} >
+   Share to Hall of Champion
+</button>
                 <Videobutton light={true} link={`/`} content={"Return"}></Videobutton>
               
              

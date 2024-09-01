@@ -15,7 +15,7 @@ const navigation = {
      
     ],
     legal: [
-      { name: 'Hall of Fame', href: '#' },
+      { name: 'Champions Board', href: '/ChampionsBoard' },
       
     ],
     social: [

@@ -1,9 +1,9 @@
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/ui/NavBar";
 import Footer from "./components/ui/Footer";
-
 const inter = Inter({ subsets: ["latin"] });
 /*
 <title>REPS- Lower limb and upper limb exercises for people with stroke</title>

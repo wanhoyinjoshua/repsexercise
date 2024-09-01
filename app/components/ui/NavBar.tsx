@@ -7,7 +7,7 @@ import { useState } from 'react'
 
 export default function Navbar() {
     const menuItems=[
-        {href:"/",
+        {href:"/ExerciseGallery",
             text:"Exercise Videos"
 
         },
@@ -15,8 +15,8 @@ export default function Navbar() {
             text:"Program Info"
 
         },
-        {href:"/",
-            text:"Download"
+        {href:"/ChampionsBoard",
+            text:"Champion Board"
 
         },
 
