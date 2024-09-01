@@ -5,7 +5,7 @@ const key=""
 const secret=""
 // Create SES service object.
 const sesClient = new SESClient({ region: REGION , credentials: {
-    
+   
   }});
 export { sesClient };
 // snippet-end:[ses.JavaScript.createclientv3]
