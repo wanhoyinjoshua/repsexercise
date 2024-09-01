@@ -33,7 +33,7 @@ const PreviewCardItem = (props:{
                     <span className="sr-only">Open options</span>
                     <MinusCircleIcon aria-hidden="true" className="h-5 w-5 " />
                   </button>: 
-                  <span className={`inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent  ${props.active?"bg-green-800 text-white":"bg-white text-grey-800"} focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2`}>
+                  <span className={`inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent  ${props.active?"bg-green-700 text-white":"bg-white text-grey-800"} focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2`}>
                       <CheckIcon aria-hidden="true" className="h-5 w-5 " />
                       </span>}
                  
@@ -41,7 +41,7 @@ const PreviewCardItem = (props:{
              
             <div
               className={
-                'bg-rose-800 flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white'
+                `bg-rose-800 flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white`
               }
             >
               <img src={props.img}></img>
