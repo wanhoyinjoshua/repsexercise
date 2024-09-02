@@ -1,8 +1,10 @@
+
 import React from 'react'
 import { fetchUsers } from '../services/firebase/LeaderBoard'
 import { UserCircleIcon } from '@heroicons/react/20/solid'
 const Page = async () => {
     const users= await fetchUsers()
+    console.log(users)
     
   return (
     <div className='flex justify-center'>
@@ -22,7 +24,7 @@ const Page = async () => {
         </li>
       ))}
     </ul>
-    {users.length<1&&<div>No user data.</div>}
+    {users.length<1&&<div>No user data</div>}
        </section>
     
     
