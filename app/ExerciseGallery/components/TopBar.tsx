@@ -27,12 +27,13 @@ export default function TopBar(props:{
  
     const solutions = [
   {
-    name: 'Task (Beginner)',
-    description: 'Toggle to show or hide beginner exercises',
+    name: 'Task',
+    description: 'Toggle to show or hide the TASK program',
     href: '#',
     booleanval:"beginner_task",
     icon: SunIcon,
   },
+  /*
   {
     name: 'Task (Advanced)',
     description: 'Toggle to show or hide advanced exercises',
@@ -40,12 +41,14 @@ export default function TopBar(props:{
     booleanval:"advanced_task",
     icon: FireIcon,
   },
+  */
   { name: 'PUSH', 
     booleanval:"push",
     description: "Toggle to show or hide the PUSH program", href: '#', icon: HandRaisedIcon },
   
 ]
 const [open,setOpen]=useState(false)
+const [isPush,setPush]=useState(false)
 const ref = useDetectClickOutside({ onTriggered: ()=>setOpen(false) });
   return (
     <>
@@ -72,6 +75,7 @@ const ref = useDetectClickOutside({ onTriggered: ()=>setOpen(false) });
       
   
               </section>
+              <div className='mt-5'>You are now viewing the <span className='text-xl underline'>{isPush==true?"Push":"Task"}</span> program.</div>
               <div className='text-black'>{`(${props.count} videos available)`}</div>
            
           </div>
@@ -79,7 +83,7 @@ const ref = useDetectClickOutside({ onTriggered: ()=>setOpen(false) });
       {open&&
       <div
           
-      className="absolute inset-x-0 top-5 sm:top-0 md:top-0 -z-10 bg-white pt-16 shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
+      className="relative inset-x-0  sm:top-0 md:top-0 -z-10 bg-white  shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
     >
       
       {/**  <div className="bg-gray-50">
@@ -114,14 +118,25 @@ const ref = useDetectClickOutside({ onTriggered: ()=>setOpen(false) });
       </div>*/}
           
 
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-2 px-6 py-6 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-0 sm:py-10 lg:grid-cols-3 lg:gap-4 lg:px-8 xl:gap-8">
+      <div className=" mx-auto grid max-w-7xl grid-cols-1 gap-2 px-6  sm:grid-cols-2 sm:gap-x-6 sm:gap-y-0 pb-5 lg:grid-cols-3 lg:gap-4 lg:px-8 xl:gap-8">
         {solutions.map((item) => (
           <div
             key={item.name}
             onClick={()=>{
               console.log("hihi")
+             
               var initial=props.searchConditions
-              initial[item.booleanval]=!initial[item.booleanval]
+             initial[item.booleanval]=!initial[item.booleanval]
+              if(item.booleanval=="beginner_task"){
+                
+                initial["push"]=!initial[item.booleanval]
+                setPush(true)
+
+              }else{
+                initial["beginner_task"]=!initial[item.booleanval]
+                setPush(false)
+
+              }
               props.setConditons({...initial})}}
             className="group relative -mx-3 flex gap-6 rounded-lg p-3 text-sm leading-6 hover:bg-gray-50 sm:flex-col sm:p-6"
           >

@@ -26,7 +26,7 @@ export const dictionary:any[]=
 
   },
   {
-    "filter":["advanced_task"],
+    "filter":["advanced_task","beginner_task"],
 
     "label":"Sit to stand (advanced). It involves standing up from a chair and sitting down again.",
     "img":"/TASK/STS_b.png",
@@ -70,7 +70,7 @@ export const dictionary:any[]=
   },
   
   { 
-    "filter":["advanced_task"],
+    "filter":["advanced_task","beginner_task"],
     "label":"Stepping (advanced). It involves tapping your foot on the coloured circles of the TASK floormat.",
     "img":"/TASK/stepping_b.png",
     "reps":105,
@@ -110,7 +110,7 @@ export const dictionary:any[]=
 }
     ,
  {
-    "filter":["advanced_task"],
+    "filter":["advanced_task","beginner_task"],
 "label":"Step tap (advanced). It involves tapping your foot on a step whilst balancing with your other leg.",
 "img":"/TASK/step_tab_b.png",
 "reps":107,
@@ -152,7 +152,7 @@ export const dictionary:any[]=
   
   ,
  {
-    "filter":["advanced_task"],
+    "filter":["advanced_task","beginner_task"],
 
     "label":"Stand and reach (advanced). It involves reaching towards a wall in multiple directions.",
     "img":"/TASK/stand_reach_b.png",
@@ -201,7 +201,7 @@ export const dictionary:any[]=
   
   ,
   {
-    "filter":["advanced_task"],
+    "filter":["advanced_task","beginner_task"],
 
     "label":"Sit and reach (advanced). This involves reaching towards a cup and moving it to different coloured circle on the TASK placemat.",
     "img":"/TASK/sit_reach_b.png",
