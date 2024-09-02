@@ -5,7 +5,8 @@ const benefits = [
     'High Quality Videos',
     'Make your own exercise video booklet',
     'Share your exercise booklets',
-    'Designed for ease of use'
+    'Designed for ease of use',
+    "Champion Board"
    
   ]
 
@@ -35,6 +36,9 @@ const ProgramInfo = () => {
                   REPS consists of two post stroke exercise programs TASK and PUSH.
 Both programs utilise a stragety that can assist recovery after stroke -task oriented repetitive exercise. TASK involves the repetitive practice of four everyday tasks whereas PUSH involves the repetitive practice of arm movements.
 
+                  </div>
+                  <div className='text-white mt-5'>
+                  REPS also allows therapist to send and patients to receive custom video booklets vis email. In addition this website has a champion board which allows patients to share their achievements- reps completed to the wider community!
                   </div>
                   <div className='text-white mt-5 border-2 border-gray-300 p-5'>
                   

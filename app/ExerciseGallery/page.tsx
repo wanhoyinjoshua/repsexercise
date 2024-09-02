@@ -43,7 +43,7 @@ const Page = () => {
         var isSelected=videoId.includes(object.id)
         
        
-        if(isPush||isbeginner||isSelected){
+        if(isPush||isbeginner){
             
             return true
 
@@ -92,6 +92,7 @@ const Page = () => {
         setPreview={setPreview}
         count={filtered().length}
         selected={videoId.length}
+        setVideoId={setVideoId}
 
         ></TopBar>
         </div>

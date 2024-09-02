@@ -11,12 +11,14 @@ const TestHero = () => {
         <div className="mx-auto max-w-7xl px-6 py-0 sm:py-5 lg:px-5">
           <div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
             <h1 className="max-w-2xl text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:col-span-2 xl:col-auto">
-            Upper Limb and Lower limb exercises for Stroke - REPS
+            Upper Limb and Lower limb exercise videos for Stroke - REPS
             </h1>
             <div className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
               <h2 className="text-lg leading-8 text-gray-600">
-              REPS consists of two post stroke exercise programs TASK and PUSH. Both programs utilise a stragety that can assist recovery after stroke - repetitive exercise. TASK involves the repetitive practice of four everyday tasks whereas PUSH involves the repetitive practice of arm movements.
+              REPS consists of two post stroke exercise video programs TASK and PUSH. Both programs utilise a stragety that can assist recovery after stroke - repetitive exercise. TASK involves the repetitive practice of four everyday tasks whereas PUSH involves the repetitive practice of arm movements.
               </h2>
+
+              
               <div className="mt-10 flex items-center gap-x-6">
                 <Videobutton link={"/ExerciseGallery"} content={"Exercise Videos"}></Videobutton>
                 <a href="#" className="text-sm font-semibold leading-6 text-gray-900">

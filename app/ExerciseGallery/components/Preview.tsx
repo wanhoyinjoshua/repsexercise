@@ -92,6 +92,7 @@ const Preview = (props:{
                 </button>
           
             <span className='flex justify-items-start text-wrap'>
+              {item.filter.includes("beginner_task")?<span className='mr-5'><strong>{`(TASK)`}</strong></span>:<span  className='mr-5'><strong>{`(PUSH)`}</strong></span>}
             {item.label}
 
             </span>

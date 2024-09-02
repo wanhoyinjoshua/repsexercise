@@ -22,6 +22,7 @@ export default function TopBar(props:{
         setPreview:any
         count:any
         selected:any
+        setVideoId:any
 
 }) {
  
@@ -75,7 +76,7 @@ const ref = useDetectClickOutside({ onTriggered: ()=>setOpen(false) });
       
   
               </section>
-              <div className='mt-5'>You are now viewing the <span className='text-xl underline'>{isPush==true?"Push":"Task"}</span> program.</div>
+              <div className='mt-5'>You are now viewing the <span className='text-xl underline'>{isPush==false?"Push":"Task"}</span> program.</div>
               <div className='text-black'>{`(${props.count} videos available)`}</div>
            
           </div>
@@ -118,14 +119,16 @@ const ref = useDetectClickOutside({ onTriggered: ()=>setOpen(false) });
       </div>*/}
           
 
-      <div className=" mx-auto grid max-w-7xl grid-cols-1 gap-2 px-6  sm:grid-cols-2 sm:gap-x-6 sm:gap-y-0 pb-5 lg:grid-cols-3 lg:gap-4 lg:px-8 xl:gap-8">
+      <div className=" mx-auto grid max-w-7xl grid-cols-1 gap-2 px-6  sm:grid-cols-2 sm:gap-x-6 sm:gap-y-0 pb-5 lg:grid-cols-3 lg:gap-4 lg:px-8 xl:gap-8  cursor-pointer">
         {solutions.map((item) => (
           <div
             key={item.name}
             onClick={()=>{
               console.log("hihi")
+              //props.setVideoId([])
              
               var initial=props.searchConditions
+              
              initial[item.booleanval]=!initial[item.booleanval]
               if(item.booleanval=="beginner_task"){
                 

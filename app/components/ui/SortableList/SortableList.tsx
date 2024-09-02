@@ -21,7 +21,8 @@ import { DragHandle, SortableItem, SortableOverlay } from "./components";
 interface BaseItem {
   id: UniqueIdentifier;
   label:string,
-  img:string
+  img:string,
+  filter:any
 }
 
 interface Props<T extends BaseItem> {

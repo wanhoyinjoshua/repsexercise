@@ -13,6 +13,7 @@ const Page = async () => {
     <div key={referer} className='flex justify-center'>
       <section>
       <h1 className='text-center text-5xl m-10'>Champion Board</h1>
+      <h2>This is a place where we celebrate our achievements; reps achieved.</h2>
       <ul role="list" className="divide-y divide-gray-100">
 
       {users.map((person) => (

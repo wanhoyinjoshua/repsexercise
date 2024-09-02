@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/ui/NavBar";
 import Footer from "./components/ui/Footer";
+import { GoogleAnalytics } from '@next/third-parties/google'
 const inter = Inter({ subsets: ["latin"] });
 /*
 <title>REPS- Lower limb and upper limb exercises for people with stroke</title>
@@ -33,6 +34,7 @@ export default function RootLayout({
         <Navbar></Navbar>
         
         {children}
+        <GoogleAnalytics gaId="G-6DMCH9G439" />
      
        
         <Footer></Footer>
