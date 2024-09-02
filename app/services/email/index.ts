@@ -24,7 +24,7 @@ const createSendEmailCommand = (toAddress, fromAddress,program_id,program_name) 
 <head></head>
 <body>
   <h1>Video Exercise Booklet </h1>
-  <p>Clink <a href="https://www.repsexercise.com.au/ExerciseGallery?id=${program_id}">link</a> to access video booklet.</p>
+  <p>Clink <a href="https://www.repsexercise.com.au/VideoBooklet?id=${program_id}">link</a> to access video booklet.</p>
   <p>This email was sent with
     <a href='https://www.repsexercise.com.au/'>REPS exercises.</a>
 </body>
