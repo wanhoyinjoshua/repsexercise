@@ -1,13 +1,16 @@
 
+import { headers } from 'next/headers'
+ 
 import React from 'react'
 import { fetchUsers } from '../services/firebase/LeaderBoard'
 import { UserCircleIcon } from '@heroicons/react/20/solid'
 const Page = async () => {
     const users= await fetchUsers()
-    console.log(users)
+    const headersList = headers()
+    const referer = headersList.get('referer')
     
   return (
-    <div className='flex justify-center'>
+    <div key={referer} className='flex justify-center'>
       <section>
       <h1 className='text-center text-5xl m-10'>Champion Board</h1>
       <ul role="list" className="divide-y divide-gray-100">
