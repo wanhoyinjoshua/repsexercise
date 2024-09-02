@@ -1,5 +1,7 @@
 'use client'
 import React, { useState } from 'react'
+
+import { CheckCircleIcon ,InformationCircleIcon} from '@heroicons/react/20/solid'
 import Player from '@vimeo/player'
 import { useRef,useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
@@ -46,7 +48,7 @@ const Page = () => {
         
             console.log(`Video ${count} ended`);
             var cc= videoId
-            cc[count].completed=true
+            videoId[count].completed=true
           
             
            
@@ -135,6 +137,19 @@ equip={getEquip(videoId)}
          id={search}></Congragulations>:
          
          <section>
+              <div className="rounded-md bg-blue-50 p-4">
+      <div className="flex">
+        <div className="flex-shrink-0">
+          <InformationCircleIcon aria-hidden="true" className="h-5 w-5 text-blue-400" />
+        </div>
+        <div className="ml-3 flex-1 md:flex md:justify-between">
+          <p className="text-sm text-blue-700">Play the video to the end to complete the exercise. Alternatively, ckick completed reps to complete the exercise. Complete all exercises to collect your reward!</p>
+          <p className="mt-3 text-sm md:ml-6 md:mt-0">
+           
+          </p>
+        </div>
+      </div>
+    </div>
          <div className='aspect-video w-full relative '>
            
             {videoId.map((e,index)=>{
@@ -147,18 +162,36 @@ equip={getEquip(videoId)}
                 
 
             })}
+            <div className='flex justify-end mt-5 mb-5'>
+            <button
+            onClick={()=>{
+                var cc=videoId
+                cc[count].completed=true
+                setVideoId([...cc])
+            }}
+        type="button"
+        className="inline-flex items-center gap-x-2 rounded-md bg-rose-800 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+      >
+        <CheckCircleIcon aria-hidden="true" className="-ml-0.5 h-5 w-5" />
+        Completed Reps
+      </button>
+     
+            </div>
+            <div>
+    
+      </div>
 
             
           
             </div>
          
-            <section>
+            <section className='mt-5'>
                 
                 {videoId.map((vid,index)=>{
                     return <div 
                     
                     key={2}
-                    className={`${index==count?"p-5 bg-rose-800":""}`}
+                    className={`${index==count?"p-5  border-2 border-rose-600":""}`}
                     
                     onClick={()=>{
                         const selecttionid=vid.id

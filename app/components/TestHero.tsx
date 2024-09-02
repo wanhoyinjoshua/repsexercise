@@ -21,8 +21,8 @@ const TestHero = () => {
               
               <div className="mt-10 flex items-center gap-x-6">
                 <Videobutton link={"/ExerciseGallery"} content={"Exercise Videos"}></Videobutton>
-                <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                  Learn more <span aria-hidden="true">→</span>
+                <a href="/ChampionsBoard" className="text-sm font-semibold leading-6 text-gray-900">
+                 Champion Board <span aria-hidden="true">→</span>
                 </a>
               </div>
             </div>

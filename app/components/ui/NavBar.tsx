@@ -19,6 +19,9 @@ export default function Navbar() {
             text:"Champion Board"
 
         },
+        {href:"https://researchers.mq.edu.au/en/persons/kate-scrivener",
+          text:"Get in touch!"
+        }
 
 
     ]
