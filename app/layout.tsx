@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react"
 import Navbar from "./components/ui/NavBar";
 import Footer from "./components/ui/Footer";
 import { GoogleAnalytics } from '@next/third-parties/google'
@@ -35,6 +36,7 @@ export default function RootLayout({
         
         {children}
         <GoogleAnalytics gaId="G-6DMCH9G439" />
+        <Analytics></Analytics>
      
        
         <Footer></Footer>
