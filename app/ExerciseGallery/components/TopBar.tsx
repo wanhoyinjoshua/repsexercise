@@ -76,7 +76,7 @@ const ref = useDetectClickOutside({ onTriggered: ()=>setOpen(false) });
       
   
               </section>
-              <div className='mt-5'>You are now viewing the <span className='text-xl underline'>{isPush==false?"Push":"Task"}</span> program.</div>
+              <div className='mt-5'>You are now viewing the <span className='text-xl underline'>{isPush==false?"Task":"Push"}</span> program.</div>
               <div className='text-black'>{`(${props.count} videos available)`}</div>
            
           </div>
@@ -133,12 +133,17 @@ const ref = useDetectClickOutside({ onTriggered: ()=>setOpen(false) });
               if(item.booleanval=="beginner_task"){
                 
                 initial["push"]=!initial[item.booleanval]
-                setPush(true)
+                
 
               }else{
                 initial["beginner_task"]=!initial[item.booleanval]
-                setPush(false)
+                
 
+              }
+              if(initial["beginner_task"]==true){
+                setPush(false)
+              }else{
+                setPush(true)
               }
               props.setConditons({...initial})}}
             className="group relative -mx-3 flex gap-6 rounded-lg p-3 text-sm leading-6 hover:bg-gray-50 sm:flex-col sm:p-6"

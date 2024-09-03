@@ -100,7 +100,7 @@ const Page = () => {
         
             
             <div className='flex justify-center'>
-                <div className='w-11/12 flex flex-wrap justify-start'>
+                <div className='w-11/12 flex flex-wrap justify-center'>
         
                 {
                     filtered().map((object)=>{

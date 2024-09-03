@@ -1,7 +1,7 @@
 import { SendEmailCommand } from "@aws-sdk/client-ses";
 import { sesClient } from "../libs/sesClient";
 
-const createSendEmailCommand = (toAddress, fromAddress,program_id,program_name) => {
+const createSendEmailCommand = (toAddress, fromAddress,program_id,program_name,messages) => {
   return new SendEmailCommand({
     Destination: {
       /* required */
@@ -25,8 +25,13 @@ const createSendEmailCommand = (toAddress, fromAddress,program_id,program_name) 
 <body>
   <h1>Video Exercise Booklet </h1>
   <p>Clink <a href="https://www.repsexercise.com.au/VideoBooklet?id=${program_id}">link</a> to access video booklet.</p>
+  <br/>
+  <h2>Message"</h2>
+  <br/>
+  <p>${messages}</p>
+  <br/>
   <p>This email was sent with
-    <a href='https://www.repsexercise.com.au/'>REPS exercises.</a>
+    <a href='https://www.repsexercise.com.au/'>REPS exercises. Please do not reply to this email as this mailbox is not monitored.</a>
 </body>
 </html>
 
@@ -50,12 +55,13 @@ const createSendEmailCommand = (toAddress, fromAddress,program_id,program_name) 
   });
 };
 
-const run_sendEmail = async (program_id:any,email:string,program_name?:string) => {
+const run_sendEmail = async (program_id:any,email:string,program_name?:string,messages?:string) => {
   const sendEmailCommand = createSendEmailCommand(
     email,
     "notifications@repsexercise.com.au",
     program_id,
-    program_name
+    program_name,
+    messages
   );
 
   try {

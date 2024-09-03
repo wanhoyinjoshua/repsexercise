@@ -18,6 +18,7 @@ const ShareBookletDialog = (props:{
     const [email,setEmail]=useState("")
     const [sending,setSending]=useState(false)
     const [sendSuccess,setSucess]=useState(null)
+    const [messages,setMessage]=useState("")
     //0 is sms 
     //1 is email
     const categories = [
@@ -109,10 +110,29 @@ const ShareBookletDialog = (props:{
                 </ul>
               </TabPanel>
             ))}
+            <div className='p-3'>
+      <label htmlFor="comment" className="block text-sm font-medium leading-6 text-gray-900">
+        Messages
+      </label>
+      <div className="mt-2">
+        <textarea
+        value={messages}
+        onChange={(e)=>{setMessage(e.target.value)}}
+          id="comment"
+          name="comment"
+          rows={4}
+          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-rose-600 sm:text-sm sm:leading-6"
+          defaultValue={''}
+        />
+      </div>
+    </div>
+            
             {sendSuccess==true?<AlertMsg status={true}></AlertMsg>:sendSuccess==false?<AlertMsg status={false}></AlertMsg>:null}
+          
           </TabPanels>
         </TabGroup>
               </p>
+              
               <div className="mt-4 flex justify-between">
                 <Button
                   className="inline-flex items-center gap-2 rounded-md bg-gray-700 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[focus]:outline-1 data-[focus]:outline-white data-[open]:bg-gray-700"
@@ -130,7 +150,7 @@ const ShareBookletDialog = (props:{
                     console.log("hi")
                     if(sendOptions==1){
                       setSending(true)
-                      const jason= await  run_sendEmail(props.program_id,email,"hi")
+                      const jason= await  run_sendEmail(props.program_id,email,"hi",messages)
                       if(jason instanceof Error){
                         setSending(false)
                         setSucess(false)
