@@ -35,7 +35,7 @@ export default function RootLayout({
         <Navbar></Navbar>
         
         {children}
-        <GoogleAnalytics gaId="G-6DMCH9G439" />
+        <GoogleAnalytics gaId="G-D764MXGR0M" />
         <Analytics></Analytics>
      
        

@@ -143,7 +143,7 @@ equip={getEquip(videoId)}
           <InformationCircleIcon aria-hidden="true" className="h-5 w-5 text-blue-400" />
         </div>
         <div className="ml-3 flex-1 md:flex md:justify-between">
-          <p className="text-sm text-blue-700">Play the video to the end to complete the exercise. Alternatively, ckick completed reps to complete the exercise. Complete all exercises to collect your reward!</p>
+          <p className="text-sm text-blue-700">Play the video to the end to complete the exercise. Alternatively, click completed reps to complete the exercise. Complete all exercises to collect your reward!</p>
           <p className="mt-3 text-sm md:ml-6 md:mt-0">
            
           </p>
