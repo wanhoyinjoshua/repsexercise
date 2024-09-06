@@ -25,15 +25,15 @@ const ProgramInfo = () => {
                 <div className="w-full flex-auto">
                   <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Program Info</h2>
                   <p className="mt-6 text-lg leading-8 text-gray-300">
-                  REPS- Recovery Exercise Post Stroke
+                  REPS- Exercise Videos for stroke survivors.
                   <br></br>
-                  Welcome to the REPS app!
+                  Welcome to the REPS website!
                   <br></br>
 
                   </p>
                  
                   <div className='text-white mt-5'>
-                  REPS consists of two post stroke exercise programs TASK and PUSH.
+                  REPS consists of two exercise programs TASK and PUSH for stroke survivors.
 Both programs utilise a stragety that can assist recovery after stroke -task oriented repetitive exercise. TASK involves the repetitive practice of four everyday tasks whereas PUSH involves the repetitive practice of arm movements.
 
                   </div>

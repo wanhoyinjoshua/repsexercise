@@ -10,12 +10,12 @@ const HeroFirst = () => {
       className="mx-auto max-w-xl text-center "
     >
       <h1 className="text-2xl font-bold text-grey-100 md:text-3xl">
-      Upper Limb and Lower limb exercises for Stroke - REPS
+      Exercises for stroke survivors - REPS
       
       </h1>
 
       <h2 className="hidden  text-grey-100 md:mt-4 md:block">
-      REPS consists of two post stroke exercise programs TASK and PUSH. Both programs utilise a stragety that can assist recovery after stroke - repetitive exercise. TASK involves the repetitive practice of four everyday tasks whereas PUSH involves the repetitive practice of arm movements.
+      REPS consists of two exercise programs TASK and PUSH for stroke survivors. Both programs utilise a stragety that can assist recovery after stroke - repetitive exercise. TASK involves the repetitive practice of four everyday tasks whereas PUSH involves the repetitive practice of arm movements.
       
       </h2>
 
