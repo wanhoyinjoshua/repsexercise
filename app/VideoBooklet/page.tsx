@@ -14,6 +14,7 @@ import Disclaimer from './components/Disclaimer'
 import { getDuration } from './utils/getDuration'
 import { getEquip } from './utils/getEquip'
 import { getReps } from './utils/getReps'
+import { addScore } from '../services/score'
 const Page = () => {
     const searchParams = useSearchParams()
     const search = searchParams.get('id')
@@ -49,6 +50,7 @@ const Page = () => {
             console.log(`Video ${count} ended`);
             var cc= videoId
             videoId[count].completed=true
+            addScore(cc[count].reps)
           
             
            
@@ -164,12 +166,15 @@ equip={getEquip(videoId)}
             })}
             <div className='flex justify-end mt-5 mb-5'>
             <button
+            disabled={videoId[count].completed==true}
             onClick={()=>{
                 var cc=videoId
                 cc[count].completed=true
+                addScore(cc[count].reps)
                 setVideoId([...cc])
             }}
         type="button"
+
         className="inline-flex items-center gap-x-2 rounded-md bg-rose-800 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
       >
         <CheckCircleIcon aria-hidden="true" className="-ml-0.5 h-5 w-5" />

@@ -1,9 +1,10 @@
 'use client'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, BellIcon, XMarkIcon,ArrowPathIcon } from '@heroicons/react/24/outline'
 import { PlusIcon } from '@heroicons/react/20/solid'
 import { action_btn_accent,action_btn_color } from '@/constants/ui_style_tailwind'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { getScore } from '@/app/services/score'
 
 export default function Navbar() {
     const menuItems=[
@@ -26,7 +27,17 @@ export default function Navbar() {
 
     ]
 
-    const [isLoggedin,setLoggedin]=useState(false)
+    //const [isLoggedin,setLoggedin]=useState(false)
+    const [reps,setReps]=useState(null)
+    useEffect(()=>{
+      if (typeof window !== "undefined") {
+        setReps(getScore())
+      }
+
+      
+
+
+    },[getScore()])
   return (
     <Disclosure as="nav" className="bg-white shadow">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -64,16 +75,20 @@ export default function Navbar() {
              
             </div>
           </div>
-          {isLoggedin&&
+        
+          {/**navv user logged */}
            <div className="flex items-center">
            <div className="flex-shrink-0">
-             <button
+            {/**
+             * <button
                type="button"
                className={`relative inline-flex items-center gap-x-1.5 rounded-md bg-${action_btn_color} px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-${action_btn_accent} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-${action_btn_color}`}
              >
                <PlusIcon aria-hidden="true" className="-ml-0.5 h-5 w-5" />
                New Job
              </button>
+             */}
+             
            </div>
            <div className="hidden md:ml-4 md:flex md:flex-shrink-0 md:items-center">
              <button
@@ -82,29 +97,41 @@ export default function Navbar() {
              >
                <span className="absolute -inset-1.5" />
                <span className="sr-only">View notifications</span>
-               <BellIcon aria-hidden="true" className="h-6 w-6" />
+{/*  <BellIcon aria-hidden="true" className="h-6 w-6" /> */}
+<div>{reps} reps </div>
+
+              
              </button>
 
-             {/* Profile dropdown */}
-             <Menu as="div" className="relative ml-3">
-               <div>
+             <div className={`relative flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-${action_btn_color} focus:ring-offset-2`}>
+                   <span className="absolute -inset-1.5" />
+                   <span className="sr-only">Open user menu</span>
+                   <img
+                     alt=""
+                     src="/trophy-star.png"
+                     className="h-8 w-8 rounded-full"
+                   />
+                 </div>
+
+             {/**<Menu as="div" className="z-50 relative ml-3">
+               <div  className='z-50'>
                  <MenuButton className={`relative flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-${action_btn_color} focus:ring-offset-2`}>
                    <span className="absolute -inset-1.5" />
                    <span className="sr-only">Open user menu</span>
                    <img
                      alt=""
-                     src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                     src="/trophy-star.png"
                      className="h-8 w-8 rounded-full"
                    />
                  </MenuButton>
                </div>
                <MenuItems
                  transition
-                 className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+                 className="z-50 absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
                >
                  <MenuItem>
                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
-                     Your Profile
+                     Your Profile {reps}
                    </a>
                  </MenuItem>
                  <MenuItem>
@@ -118,12 +145,13 @@ export default function Navbar() {
                    </a>
                  </MenuItem>
                </MenuItems>
-             </Menu>
+             </Menu> */}
+             
            </div>
          </div>
           
           
-          }
+          
          
         </div>
       </div>
@@ -146,7 +174,8 @@ export default function Navbar() {
           
          
         </div>
-        {isLoggedin&&
+        {/**navv user logged */}
+       
          <div className="border-t border-gray-200 pb-3 pt-4">
          <div className="flex items-center px-4 sm:px-6">
            <div className="flex-shrink-0">
@@ -194,7 +223,7 @@ export default function Navbar() {
          </div>
        </div>
         
-        }
+        
        
       </DisclosurePanel>
     </Disclosure>
