@@ -90,7 +90,7 @@ export default function Navbar() {
              */}
              
            </div>
-           <div className="hidden md:ml-4 md:flex md:flex-shrink-0 md:items-center">
+           <div className="flex md:ml-4 md:flex md:flex-shrink-0 md:items-center">
              <button
                type="button"
                className={`relative rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-${action_btn_color} focus:ring-offset-2`}
@@ -174,9 +174,9 @@ export default function Navbar() {
           
          
         </div>
-        {/**navv user logged */}
-       
-         <div className="border-t border-gray-200 pb-3 pt-4">
+        {/**navv user logged 
+         * 
+         *  <div className="border-t border-gray-200 pb-3 pt-4">
          <div className="flex items-center px-4 sm:px-6">
            <div className="flex-shrink-0">
              <img
@@ -222,6 +222,9 @@ export default function Navbar() {
            </DisclosureButton>
          </div>
        </div>
+         */}
+       
+        
         
         
        
