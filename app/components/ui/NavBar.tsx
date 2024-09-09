@@ -3,9 +3,9 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { Bars3Icon, BellIcon, XMarkIcon,ArrowPathIcon } from '@heroicons/react/24/outline'
 import { PlusIcon } from '@heroicons/react/20/solid'
 import { action_btn_accent,action_btn_color } from '@/constants/ui_style_tailwind'
-import { useEffect, useState } from 'react'
+import { useEffect, useState,useContext } from 'react'
 import { getScore } from '@/app/services/score'
-
+import AppContext from '@/app/context/creation'
 export default function Navbar() {
     const menuItems=[
         {href:"/ExerciseGallery",
@@ -29,9 +29,10 @@ export default function Navbar() {
 
     //const [isLoggedin,setLoggedin]=useState(false)
     const [reps,setReps]=useState(null)
+    const scoreObject = useContext(AppContext);
     useEffect(()=>{
       if (typeof window !== "undefined") {
-        setReps(getScore())
+        scoreObject.setScore(getScore())
       }
 
       
@@ -98,7 +99,7 @@ export default function Navbar() {
                <span className="absolute -inset-1.5" />
                <span className="sr-only">View notifications</span>
 {/*  <BellIcon aria-hidden="true" className="h-6 w-6" /> */}
-<div>{reps} reps </div>
+<div>{scoreObject .score} reps </div>
 
               
              </button>

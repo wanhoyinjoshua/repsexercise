@@ -6,7 +6,10 @@ import { Analytics } from "@vercel/analytics/react"
 import Navbar from "./components/ui/NavBar";
 import Footer from "./components/ui/Footer";
 import { GoogleAnalytics } from '@next/third-parties/google'
+import { ContextProvider } from "./context";
+import { Context } from "@dnd-kit/sortable/dist/components";
 const inter = Inter({ subsets: ["latin"] });
+
 /*
 <title>REPS- Lower limb and upper limb exercises for people with stroke</title>
       <link rel="icon" href="/favicon.ico" />
@@ -31,6 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <ContextProvider>
       <body className={`${inter.className} bg-slate-50`}>
         <Navbar></Navbar>
         
@@ -41,6 +45,7 @@ export default function RootLayout({
        
         <Footer></Footer>
         </body>
+        </ContextProvider>
     </html>
   );
 }

@@ -3,7 +3,8 @@ import React, { useState } from 'react'
 
 import { CheckCircleIcon ,InformationCircleIcon} from '@heroicons/react/20/solid'
 import Player from '@vimeo/player'
-import { useRef,useEffect } from 'react'
+import { useRef,useEffect,useContext } from 'react'
+import AppContext from '../context/creation'
 import { useSearchParams } from 'next/navigation'
 import { convertid2Object } from '../ExerciseGallery/utils/convertId2Object'
 import Preview from '../ExerciseGallery/components/Preview'
@@ -21,6 +22,7 @@ const Page = () => {
     const [videoId,setVideoId]=useState(convertid2Object(search.split("_").map((id)=>{return Number(id)})).map((e)=>{return {...e,completed:false}}))
     const [count,setCount]=useState(-1)
     const [ack,setAcknowledge]=useState(false)
+    const scoreObject = useContext(AppContext);
     const [disclaimer,setDisclaimer]=useState(false)
     
 
@@ -50,7 +52,7 @@ const Page = () => {
             console.log(`Video ${count} ended`);
             var cc= videoId
             videoId[count].completed=true
-            addScore(cc[count].reps)
+            addScore(cc[count].reps,scoreObject)
           
             
            
@@ -170,7 +172,7 @@ equip={getEquip(videoId)}
             onClick={()=>{
                 var cc=videoId
                 cc[count].completed=true
-                addScore(cc[count].reps)
+                addScore(cc[count].reps,scoreObject)
                 setVideoId([...cc])
             }}
         type="button"

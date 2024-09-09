@@ -1,4 +1,5 @@
-export  function addScore(score){
+export  function addScore(score,scoreObject){
+  scoreObject.setScore(oldScore=>oldScore+score)
     if (typeof window !== "undefined") {
      if (!localStorage.getItem("score")) {
       // If it doesn't exist, add it to localStorage
