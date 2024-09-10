@@ -16,8 +16,8 @@ export default function Navbar() {
             text:"Program Info"
 
         },
-        {href:"/ChampionsBoard",
-            text:"Champion Board"
+        {href:"/Achievement",
+            text:"My Achievements"
 
         },
         {href:"https://researchers.mq.edu.au/en/persons/kate-scrivener",

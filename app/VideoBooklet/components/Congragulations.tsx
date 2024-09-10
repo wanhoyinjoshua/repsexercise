@@ -84,7 +84,7 @@ const Congragulations = (props:{
  className={`mb-2 mt-1 py-4 px-6  bg-rose-800 text-white hover:bg-rose-500   focus:ring-rose-500 focus:ring-offset-rose-200  w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2`} >
    Share to Hall of Champion
 </button>
-                <Videobutton light={true} link={`/`} content={"Return"}></Videobutton>
+                <Videobutton light={true} link={`/Achievement`} content={"View achievements"}></Videobutton>
               
              
               
